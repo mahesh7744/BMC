@@ -16,7 +16,8 @@ class TextFielDesign extends StatelessWidget {
   final bool isReadOnly;
   final FocusNode? focusnodeuse;
 
-  TextFielDesign({
+  const TextFielDesign({
+    super.key,
     required this.lbltext,
     required this.fontSize,
     required this.fontWeight,
