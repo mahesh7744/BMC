@@ -11,9 +11,15 @@ class _MembermasterState extends State<Membermaster> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-         appBar: AppBar(title: Text('Member Master',style: TextStyle(fontSize: 18,fontFamily: 'Roboto'),),),
-
-        
+      appBar: AppBar(
+        backgroundColor: Colors.blueAccent.shade100,
+        centerTitle: true,
+        title: Text(
+          'Member Master',
+          style: TextStyle(
+              fontSize: 24, fontFamily: 'Roboto', color: Colors.white),
+        ),
+      ),
     );
   }
 }
