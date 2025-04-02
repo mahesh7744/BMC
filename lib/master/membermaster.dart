@@ -10,6 +10,10 @@ class Membermaster extends StatefulWidget {
 class _MembermasterState extends State<Membermaster> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+         appBar: AppBar(title: Text('Member Master',style: TextStyle(fontSize: 18,fontFamily: 'Roboto'),),),
+
+        
+    );
   }
 }
