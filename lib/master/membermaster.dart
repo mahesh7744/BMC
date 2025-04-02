@@ -32,7 +32,7 @@ class _MembermasterState extends State<Membermaster> {
         child: SingleChildScrollView(
           child: Center(
             child: Container(
-              width: 600,
+              width: 700,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -128,11 +128,266 @@ class _MembermasterState extends State<Membermaster> {
                   ),
                   const SizedBox(height: 10),
 
+                  Row(
+                    children: [
+                      SizedBox(
+                        height: 60,
+                        width: 410,
+                        child: TextFielDesign(
+                          lbltext: 'Member Name',
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          textAlign: TextAlign.left,
+                          textInputType: TextInputType.text,
+                        ),
+                      ),
+                      SizedBox(width: 15),
+                      SizedBox(
+                        height: 60,
+                        width: 200,
+                        child: TextFielDesign(
+                          lbltext: 'Name In English',
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          textAlign: TextAlign.left,
+                          textInputType: TextInputType.text,
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 10),
+                  Row(
+                    children: [
+                      SizedBox(
+                        height: 60,
+                        width: 410,
+                        child: TextFielDesign(
+                          lbltext: 'Address',
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          textAlign: TextAlign.left,
+                          textInputType: TextInputType.text,
+                        ),
+                      ),
+                      SizedBox(width: 15),
+                      SizedBox(
+                        height: 60,
+                        width: 200,
+                        child: TextFielDesign(
+                          lbltext: 'Account Number',
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          textAlign: TextAlign.left,
+                          textInputType: TextInputType.text,
+                        ),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      SizedBox(
+                        height: 60,
+                        width: 200,
+                        child: TextFielDesign(
+                          lbltext: 'Village/City',
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          textAlign: TextAlign.left,
+                          textInputType: TextInputType.text,
+                        ),
+                      ),
+                      SizedBox(width: 10),
+                      SizedBox(
+                        height: 60,
+                        width: 200,
+                        child: TextFielDesign(
+                          lbltext: 'Cow deposit Rs',
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          textAlign: TextAlign.left,
+                          textInputType: TextInputType.text,
+                        ),
+                      ),
+                      SizedBox(width: 10),
+                      SizedBox(
+                        height: 60,
+                        width: 200,
+                        child: TextFielDesign(
+                          lbltext: 'Bank Name',
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          textAlign: TextAlign.left,
+                          textInputType: TextInputType.text,
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 10),
+                  Row(
+                    children: [
+                      SizedBox(
+                        height: 60,
+                        width: 200,
+                        child: TextFielDesign(
+                          lbltext: 'Pin Code',
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          textAlign: TextAlign.left,
+                          textInputType: TextInputType.text,
+                        ),
+                      ),
+                      SizedBox(width: 10),
+                      SizedBox(
+                        height: 60,
+                        width: 200,
+                        child: TextFielDesign(
+                          lbltext: 'Buffalo deposit Rs',
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          textAlign: TextAlign.left,
+                          textInputType: TextInputType.text,
+                        ),
+                      ),
+                      SizedBox(width: 10),
+                      SizedBox(
+                        height: 60,
+                        width: 200,
+                        child: TextFielDesign(
+                          lbltext: 'Branch',
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          textAlign: TextAlign.left,
+                          textInputType: TextInputType.text,
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 10),
+                  Row(
+                    children: [
+                      SizedBox(
+                        height: 60,
+                        width: 200,
+                        child: TextFielDesign(
+                          lbltext: 'Phone No',
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          textAlign: TextAlign.left,
+                          textInputType: TextInputType.text,
+                        ),
+                      ),
+                      SizedBox(width: 10),
+                      SizedBox(
+                        height: 60,
+                        width: 200,
+                        child: TextFielDesign(
+                          lbltext: 'Cow transport Rs',
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          textAlign: TextAlign.left,
+                          textInputType: TextInputType.text,
+                        ),
+                      ),
+                      SizedBox(width: 10),
+                      SizedBox(
+                        height: 60,
+                        width: 200,
+                        child: TextFielDesign(
+                          lbltext: 'IFSC Code',
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          textAlign: TextAlign.left,
+                          textInputType: TextInputType.text,
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 10),
+                  Row(
+                    children: [
+                      SizedBox(
+                        height: 60,
+                        width: 200,
+                        child: TextFielDesign(
+                          lbltext: 'Mobile No',
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          textAlign: TextAlign.left,
+                          textInputType: TextInputType.text,
+                        ),
+                      ),
+                      SizedBox(width: 10),
+                      SizedBox(
+                        height: 60,
+                        width: 200,
+                        child: TextFielDesign(
+                          lbltext: 'Buffalo transport Rs',
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          textAlign: TextAlign.left,
+                          textInputType: TextInputType.text,
+                        ),
+                      ),
+                      SizedBox(width: 10),
+                      SizedBox(
+                        height: 60,
+                        width: 200,
+                        child: TextFielDesign(
+                          lbltext: 'Fssai Number',
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          textAlign: TextAlign.left,
+                          textInputType: TextInputType.text,
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 10),
+                  Row(
+                    children: [
+                      SizedBox(
+                        height: 60,
+                        width: 200,
+                        child: TextFielDesign(
+                          lbltext: 'Taluka',
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          textAlign: TextAlign.left,
+                          textInputType: TextInputType.text,
+                        ),
+                      ),
+                      SizedBox(width: 10),
+                      SizedBox(
+                        height: 60,
+                        width: 200,
+                        child: TextFielDesign(
+                          lbltext: 'Fixed deposit Rs',
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          textAlign: TextAlign.left,
+                          textInputType: TextInputType.text,
+                        ),
+                      ),
+                      SizedBox(width: 10),
+                      SizedBox(
+                        height: 60,
+                        width: 200,
+                        child: TextFielDesign(
+                          lbltext: 'Advance Reduce',
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          textAlign: TextAlign.left,
+                          textInputType: TextInputType.text,
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 10),
                   SizedBox(
                     height: 60,
-                    width: 400,
+                    width: 200,
                     child: TextFielDesign(
-                      lbltext: 'Member Name',
+                      lbltext: 'District',
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
                       textAlign: TextAlign.left,
