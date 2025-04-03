@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:bmc/master/membermaster.dart';
+import 'package:bmc/other/homepage.dart';
 import 'package:flutter/material.dart';
 import 'package:window_manager/window_manager.dart';
 
@@ -27,8 +28,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: "/membermaster",
+      initialRoute: "/homepage",
       routes: {
+        "/homepage": (context) => Homepage(),
         "/membermaster": (context) => Membermaster(),
       },
     );

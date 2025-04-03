@@ -7,14 +7,14 @@ class TextFielDesign extends StatelessWidget {
   final TextAlign textAlign;
   final TextInputType textInputType;
   final TextEditingController? textEditingController;
-  final Function(String)? onSubmitted; // Add onSubmitted as a callback
-  final Function(String)? onChanged; // Add onChanged as a callback
+  final Function(String)? onSubmitted;
+  final Function(String)? onChanged;
   final IconData? prefixIcon;
   final IconData? suffixIcon;
   final String? prefixText;
   final bool isEnabled;
   final bool isReadOnly;
-  final FocusNode? focusnodeuse;
+  final FocusNode? focusNode; // Fixed the focus node naming issue
 
   const TextFielDesign({
     super.key,
@@ -25,19 +25,19 @@ class TextFielDesign extends StatelessWidget {
     required this.textInputType,
     this.textEditingController,
     this.onSubmitted,
-    this.onChanged, // Initialize onChanged
+    this.onChanged,
     this.prefixIcon,
     this.suffixIcon,
     this.prefixText,
     this.isEnabled = true,
-    this.focusnodeuse,
     this.isReadOnly = false,
+    this.focusNode, // Corrected the parameter name
   });
 
   @override
   Widget build(BuildContext context) {
     return TextField(
-      focusNode: focusnodeuse,
+      focusNode: focusNode, // Use only the correct focus node
       controller: textEditingController,
       keyboardType: textInputType,
       textAlign: textAlign,
@@ -67,8 +67,8 @@ class TextFielDesign extends StatelessWidget {
         suffixIcon: suffixIcon != null ? Icon(suffixIcon) : null,
         prefixText: prefixText,
       ),
-      onSubmitted: onSubmitted, // Use onSubmitted callback
-      onChanged: onChanged, // Use onChanged callback
+      onSubmitted: onSubmitted,
+      onChanged: onChanged,
     );
   }
 }
