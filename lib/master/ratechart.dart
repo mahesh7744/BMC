@@ -76,9 +76,10 @@ class _RatechartState extends State<Ratechart> {
                             Text(
                               'Cow',
                               style: TextStyle(
-                                  fontWeight: FontWeight.w900,
-                                  fontSize: 16,
-                                  color: Colors.indigoAccent.shade200),
+                                fontWeight: FontWeight.w900,
+                                fontSize: 16,
+                                color: Colors.indigoAccent.shade200,
+                              ),
                             ),
                             SizedBox(height: 5),
                             Row(
@@ -91,7 +92,7 @@ class _RatechartState extends State<Ratechart> {
                                     textInputType: TextInputType.text,
                                     fontSize: 16,
                                     fontWeight: FontWeight.bold,
-                                    textAlign: TextAlign.left,
+                                    textAlign: TextAlign.center,
                                     focusNode: cowfatFocus,
                                     onSubmitted: (value) {
                                       FocusScope.of(context)
@@ -108,7 +109,7 @@ class _RatechartState extends State<Ratechart> {
                                     textInputType: TextInputType.text,
                                     fontSize: 16,
                                     fontWeight: FontWeight.bold,
-                                    textAlign: TextAlign.left,
+                                    textAlign: TextAlign.center,
                                     focusNode: cowsnfFocus,
                                     onSubmitted: (value) {
                                       FocusScope.of(context)
@@ -125,7 +126,7 @@ class _RatechartState extends State<Ratechart> {
                                     textInputType: TextInputType.text,
                                     fontSize: 16,
                                     fontWeight: FontWeight.bold,
-                                    textAlign: TextAlign.left,
+                                    textAlign: TextAlign.right,
                                     focusNode: cowrateFocus,
                                     onSubmitted: (value) {
                                       cowaddDataRow();
@@ -135,9 +136,6 @@ class _RatechartState extends State<Ratechart> {
                               ],
                             ),
                             SizedBox(height: 10),
-                            Column(
-                              children: [],
-                            ),
                             Container(
                               height: 300,
                               child: SingleChildScrollView(
@@ -184,9 +182,39 @@ class _RatechartState extends State<Ratechart> {
                                   ],
                                   rows: cowrateList.map((rate) {
                                     return DataRow(cells: [
-                                      DataCell(Text(rate["fat"] ?? "")),
-                                      DataCell(Text(rate["snf"] ?? "")),
-                                      DataCell(Text(rate["rate"] ?? "")),
+                                      DataCell(
+                                        SizedBox(
+                                          width: 100,
+                                          child: Center(
+                                            child: Text(
+                                              rate["fat"] ?? "",
+                                              textAlign: TextAlign.center,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      DataCell(
+                                        SizedBox(
+                                          width: 100,
+                                          child: Center(
+                                            child: Text(
+                                              rate["snf"] ?? "",
+                                              textAlign: TextAlign.center,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      DataCell(
+                                        SizedBox(
+                                          width: 100,
+                                          child: Center(
+                                            child: Text(
+                                              rate["rate"] ?? "",
+                                              textAlign: TextAlign.center,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
                                     ]);
                                   }).toList(),
                                 ),
@@ -218,7 +246,7 @@ class _RatechartState extends State<Ratechart> {
                                     textInputType: TextInputType.text,
                                     fontSize: 16,
                                     fontWeight: FontWeight.bold,
-                                    textAlign: TextAlign.left,
+                                    textAlign: TextAlign.center,
                                     focusNode: buffatFocus,
                                     onSubmitted: (value) {
                                       FocusScope.of(context)
@@ -235,7 +263,7 @@ class _RatechartState extends State<Ratechart> {
                                     textInputType: TextInputType.text,
                                     fontSize: 16,
                                     fontWeight: FontWeight.bold,
-                                    textAlign: TextAlign.left,
+                                    textAlign: TextAlign.center,
                                     focusNode: bufsnfFocus,
                                     onSubmitted: (value) {
                                       FocusScope.of(context)
@@ -252,7 +280,7 @@ class _RatechartState extends State<Ratechart> {
                                     textInputType: TextInputType.text,
                                     fontSize: 16,
                                     fontWeight: FontWeight.bold,
-                                    textAlign: TextAlign.left,
+                                    textAlign: TextAlign.right,
                                     focusNode: bufrateFocus,
                                     onSubmitted: (value) {
                                       bufaddDataRow();
@@ -275,8 +303,9 @@ class _RatechartState extends State<Ratechart> {
                                         child: Text(
                                           'Fat',
                                           style: TextStyle(
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.bold),
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.bold,
+                                          ),
                                           textAlign: TextAlign.center,
                                         ),
                                       ),
@@ -287,8 +316,9 @@ class _RatechartState extends State<Ratechart> {
                                         child: Text(
                                           'SNF',
                                           style: TextStyle(
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.bold),
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.bold,
+                                          ),
                                           textAlign: TextAlign.center,
                                         ),
                                       ),
@@ -308,9 +338,39 @@ class _RatechartState extends State<Ratechart> {
                                   ],
                                   rows: bufrateList.map((rate) {
                                     return DataRow(cells: [
-                                      DataCell(Text(rate["fat"] ?? "")),
-                                      DataCell(Text(rate["snf"] ?? "")),
-                                      DataCell(Text(rate["rate"] ?? "")),
+                                      DataCell(
+                                        SizedBox(
+                                          width: 100,
+                                          child: Center(
+                                            child: Text(
+                                              rate["fat"] ?? "",
+                                              textAlign: TextAlign.center,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      DataCell(
+                                        SizedBox(
+                                          width: 100,
+                                          child: Center(
+                                            child: Text(
+                                              rate["snf"] ?? "",
+                                              textAlign: TextAlign.center,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      DataCell(
+                                        SizedBox(
+                                          width: 100,
+                                          child: Center(
+                                            child: Text(
+                                              rate["rate"] ?? "",
+                                              textAlign: TextAlign.center,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
                                     ]);
                                   }).toList(),
                                 ),
