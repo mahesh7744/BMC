@@ -47,12 +47,12 @@ class _MembermasterState extends State<Membermaster> {
   int? selectedDistrictCode;
 
   final List<Map<String, String>> villageList = [
-    {"code": "201", "name": "Ichalkaranji"},
-    {"code": "202", "name": "Kolhapur"},
-    {"code": "203", "name": "Sangli"},
-    {"code": "204", "name": "Satara"},
+    {"code": "401", "name": "Baramati"},
+    {"code": "402", "name": "Loni Kalbhor"},
+    {"code": "403", "name": "Jejuri"},
   ];
-  Map<String, String>? selectedVillage;
+
+  int? selectedVillageCode;
 
   final List<Map<String, String>> rootList = [
     {"code": "301", "name": "Route 1"},
@@ -294,25 +294,25 @@ class _MembermasterState extends State<Membermaster> {
                       SizedBox(
                         height: 60,
                         width: 200,
-                        child: DropdownButtonFormField<Map<String, String>>(
-                          value: selectedVillage, // Selected Value
+                        child: DropdownButtonFormField<int>(
+                          value: selectedVillageCode,
                           decoration: InputDecoration(
                             labelText: 'Village/City',
                             border: OutlineInputBorder(),
                           ),
                           items: villageList.map((village) {
-                            return DropdownMenuItem(
-                              value: village,
+                            return DropdownMenuItem<int>(
+                              value: int.tryParse(
+                                  village['code'] ?? ""), // ⬅️ Value is int
                               child: Text(
-                                  "${village['code']} - ${village['name']}"),
+                                  village['name'] ?? ""), // ⬅️ Display is name
                             );
                           }).toList(),
-                          onChanged: (newValue) {
+                          onChanged: (int? newValue) {
                             setState(() {
-                              selectedVillage = newValue;
+                              selectedVillageCode = newValue;
                             });
-                            print(
-                                "Selected Village/City: ${newValue?['code']} - ${newValue?['name']}");
+                            print("Selected Village Code: $newValue");
                           },
                         ),
                       ),
