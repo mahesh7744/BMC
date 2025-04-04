@@ -14,8 +14,8 @@ class CustomButton extends StatefulWidget {
     required this.text,
     required this.icon,
     required this.onPressed, 
-    this.startColor = const Color.fromARGB(236, 86, 240, 163),
-    this.endColor = const Color.fromARGB(206, 1, 73, 131),
+   this.startColor =const Color(0xFF8EECF5),
+    this.endColor = const Color(0xFF8EECF8),
     this.width = 200,
     this.height = 55,
   }) : super(key: key);
@@ -63,10 +63,10 @@ class _CustomButtonState extends State<CustomButton> with SingleTickerProviderSt
           ),
           child: ElevatedButton.icon(
             onPressed: widget.onPressed,
-            icon: Icon(widget.icon, color: Colors.white, size: 20),
+            icon: Icon(widget.icon, color: Colors.black54, size: 20),
             label: Text(
               widget.text,
-              style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold,fontFamily: 'Roboto'),
+              style: TextStyle(color: Colors.black, fontSize: 16, fontWeight: FontWeight.bold,fontFamily: 'Roboto'),
             ),
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.transparent,
