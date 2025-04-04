@@ -44,7 +44,7 @@ class TextFielDesign extends StatelessWidget {
       style: TextStyle(
         fontSize: fontSize,
         fontWeight: fontWeight,
-        fontFamily: 'MonterReg',
+        fontFamily: 'Roboto',
         color: isEnabled ? Colors.black : Colors.grey,
       ),
       enabled: isEnabled,
@@ -53,8 +53,8 @@ class TextFielDesign extends StatelessWidget {
         labelText: lbltext,
         labelStyle: TextStyle(
           fontSize: 14,
-          fontWeight: FontWeight.bold,
-          fontFamily: 'MonterReg',
+          fontWeight: FontWeight.w500,
+          fontFamily: 'Roboto',
         ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),

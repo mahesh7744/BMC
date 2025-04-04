@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:bmc/customewidgets/custom_textfield.dart';
+import 'package:bmc/customewidgets/date_widget.dart';
 import 'package:excel/excel.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
@@ -13,13 +14,16 @@ class Ratechart extends StatefulWidget {
 }
 
 class _RatechartState extends State<Ratechart> {
-  final TextEditingController cowfatController = TextEditingController();
-  final TextEditingController cowsnfController = TextEditingController();
-  final TextEditingController cowrateController = TextEditingController();
+  TextEditingController cowfatController = TextEditingController();
+  TextEditingController cowsnfController = TextEditingController();
+  TextEditingController cowrateController = TextEditingController();
 
-  final TextEditingController buffatController = TextEditingController();
-  final TextEditingController bufsnfController = TextEditingController();
-  final TextEditingController bufrateController = TextEditingController();
+  TextEditingController buffatController = TextEditingController();
+  TextEditingController bufsnfController = TextEditingController();
+  TextEditingController bufrateController = TextEditingController();
+
+  TextEditingController trscDateController = TextEditingController();
+  TextEditingController chartnameController = TextEditingController();
 
   List<Map<String, dynamic>> cowrateList = [];
 
@@ -33,6 +37,7 @@ class _RatechartState extends State<Ratechart> {
   FocusNode buffatFocus = FocusNode();
   FocusNode bufsnfFocus = FocusNode();
   FocusNode bufrateFocus = FocusNode();
+  FocusNode chartnameFocus = FocusNode();
 
   @override
   void dispose() {
@@ -66,6 +71,32 @@ class _RatechartState extends State<Ratechart> {
           child: Column(
             children: [
               SizedBox(height: 10),
+              Row(
+                children: [
+                  SizedBox(
+                    height: 60,
+                    width: 160,
+                    child: DatePickerField(
+                      controller: trscDateController,
+                      labelText: 'Select Date',
+                    ),
+                  ),
+                  SizedBox(width: 10),
+                  SizedBox(
+                    height: 60,
+                    width: 220,
+                    child: TextFielDesign(
+                      lbltext: 'Chart name',
+                      textEditingController: chartnameController,
+                      textInputType: TextInputType.text,
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      textAlign: TextAlign.left,
+                      focusNode: chartnameFocus,
+                    ),
+                  ),
+                ],
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
@@ -262,14 +293,20 @@ class _RatechartState extends State<Ratechart> {
                               ),
                             ),
                           ),
-                          IconButton(
-                            onPressed: () {
-                              setState(() {
-                                cowrateList.clear();
-                              });
-                            },
-                            icon: const Icon(Icons.delete),
-                            tooltip: 'Clear Cow Rates',
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              IconButton(
+                                onPressed: () {
+                                  setState(() {
+                                    cowrateList.clear();
+                                  });
+                                },
+                                icon: const Icon(Icons.delete),
+                                tooltip: 'Clear Cow Rates',
+                              ),
+                              Text('Delete Row'),
+                            ],
                           ),
                         ],
                       ),
@@ -427,14 +464,20 @@ class _RatechartState extends State<Ratechart> {
                               ),
                             ),
                           ),
-                          IconButton(
-                            onPressed: () {
-                              setState(() {
-                                bufrateList.clear();
-                              });
-                            },
-                            icon: const Icon(Icons.delete),
-                            tooltip: 'Clear Cow Rates',
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              IconButton(
+                                onPressed: () {
+                                  setState(() {
+                                    bufrateList.clear();
+                                  });
+                                },
+                                icon: const Icon(Icons.delete),
+                                tooltip: 'Clear Cow Rates',
+                              ),
+                              Text('Delete Row'),
+                            ],
                           ),
                         ],
                       ),

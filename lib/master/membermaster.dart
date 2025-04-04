@@ -182,15 +182,11 @@ class _MembermasterState extends State<Membermaster> {
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        "Milk Types:",
-                        style: TextStyle(
-                            fontSize: 16, fontWeight: FontWeight.bold),
-                      ),
+                      SizedBox(width: 10),
                       Row(
                         children: [
                           Radio<String>(
-                            value: 'Buffalo',
+                            value: 'B',
                             groupValue: selectedOption,
                             onChanged: (String? value) {
                               setState(() {
@@ -198,13 +194,21 @@ class _MembermasterState extends State<Membermaster> {
                               });
                             },
                           ),
-                          Text("Buffalo"),
+                          Text(
+                            "Buffalo",
+                            style: TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w500,
+                              fontFamily: 'Roboto',
+                            ),
+                          ),
                         ],
                       ),
+                      SizedBox(width: 20),
                       Row(
                         children: [
                           Radio<String>(
-                            value: 'Cow',
+                            value: 'C',
                             groupValue: selectedOption,
                             onChanged: (String? value) {
                               setState(() {
@@ -212,13 +216,21 @@ class _MembermasterState extends State<Membermaster> {
                               });
                             },
                           ),
-                          Text("Cow"),
+                          Text(
+                            "Cow",
+                            style: TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w500,
+                              fontFamily: 'Roboto',
+                            ),
+                          ),
                         ],
                       ),
+                      SizedBox(width: 20),
                       Row(
                         children: [
                           Radio<String>(
-                            value: 'Buffalo & Cow',
+                            value: 'CB',
                             groupValue: selectedOption,
                             onChanged: (String? value) {
                               setState(() {
@@ -226,7 +238,14 @@ class _MembermasterState extends State<Membermaster> {
                               });
                             },
                           ),
-                          Text("Buffalo & Cow"),
+                          Text(
+                            "Buffalo & Cow",
+                            style: TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w500,
+                              fontFamily: 'Roboto',
+                            ),
+                          ),
                         ],
                       ),
                     ],
@@ -321,7 +340,7 @@ class _MembermasterState extends State<Membermaster> {
                         height: 60,
                         width: 150,
                         child: TextFielDesign(
-                          lbltext: 'Cow depo Rs',
+                          lbltext: 'Cow Dep',
                           textEditingController: cowdepositController,
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
@@ -378,7 +397,7 @@ class _MembermasterState extends State<Membermaster> {
                         height: 60,
                         width: 150,
                         child: TextFielDesign(
-                          lbltext: 'Buffalo depo Rs',
+                          lbltext: 'Buf Dep',
                           textEditingController: buffalodepositController,
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
@@ -424,6 +443,7 @@ class _MembermasterState extends State<Membermaster> {
                           textAlign: TextAlign.left,
                           textInputType: TextInputType.text,
                           focusNode: phoneNumberFocus,
+                          prefixIcon: Icons.phone,
                           onSubmitted: (value) {
                             FocusScope.of(context).requestFocus(mobileFocus);
                           },
@@ -434,7 +454,7 @@ class _MembermasterState extends State<Membermaster> {
                         height: 60,
                         width: 150,
                         child: TextFielDesign(
-                          lbltext: 'Cow Commition Rs',
+                          lbltext: 'Cow Comm',
                           textEditingController: cowcommitionController,
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
@@ -479,6 +499,7 @@ class _MembermasterState extends State<Membermaster> {
                           fontWeight: FontWeight.bold,
                           textAlign: TextAlign.left,
                           textInputType: TextInputType.text,
+                          prefixIcon: Icons.mobile_friendly,
                           focusNode: mobileFocus,
                           onSubmitted: (value) {
                             FocusScope.of(context).requestFocus(taxNameFocus);
@@ -490,7 +511,7 @@ class _MembermasterState extends State<Membermaster> {
                         height: 60,
                         width: 150,
                         child: TextFielDesign(
-                          lbltext: 'Buffalo Commition Rs',
+                          lbltext: 'Buf Comm',
                           textEditingController: buffalocommitionController,
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
@@ -556,7 +577,7 @@ class _MembermasterState extends State<Membermaster> {
                         height: 60,
                         width: 150,
                         child: TextFielDesign(
-                          lbltext: 'Fixed deposit Rs',
+                          lbltext: 'Fixed dep',
                           textEditingController: fixeddepositController,
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
@@ -572,13 +593,13 @@ class _MembermasterState extends State<Membermaster> {
                       SizedBox(width: 10),
                       SizedBox(
                         height: 60,
-                        width: 260,
+                        width: 150,
                         child: TextFielDesign(
-                          lbltext: 'Advance Reduce',
+                          lbltext: 'Advance Less',
                           textEditingController: advancereduceController,
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
-                          textAlign: TextAlign.left,
+                          textAlign: TextAlign.center,
                           textInputType: TextInputType.text,
                           focusNode: advanceReduceFocus,
                           onSubmitted: (value) {
