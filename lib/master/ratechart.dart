@@ -1,4 +1,8 @@
+import 'dart:io';
+
 import 'package:bmc/customewidgets/custom_textfield.dart';
+import 'package:excel/excel.dart';
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 
 class Ratechart extends StatefulWidget {
@@ -17,9 +21,9 @@ class _RatechartState extends State<Ratechart> {
   final TextEditingController bufsnfController = TextEditingController();
   final TextEditingController bufrateController = TextEditingController();
 
-  List<Map<String, String>> cowrateList = [];
+  List<Map<String, dynamic>> cowrateList = [];
 
-  List<Map<String, String>> bufrateList = [];
+  List<Map<String, dynamic>> bufrateList = [];
 
   // Focus nodes for handling focus transitions
   FocusNode cowfatFocus = FocusNode();
@@ -435,6 +439,94 @@ class _RatechartState extends State<Ratechart> {
         bufrateController.clear();
         FocusScope.of(context).requestFocus(bufrateFocus);
       });
+    }
+  }
+
+  void _cowpickExcelFile() async {
+    FilePickerResult? result = await FilePicker.platform.pickFiles(
+      type: FileType.custom,
+      allowedExtensions: ['xlsx'],
+    );
+
+    if (result != null) {
+      File file = File(result.files.single.path!);
+      var bytes = file.readAsBytesSync();
+      var excel = Excel.decodeBytes(bytes);
+
+      // Assuming data is in the first sheet
+      var sheet = excel.tables[excel.tables.keys.first];
+      List<Map<String, dynamic>> cowtemplist = [];
+
+      if (sheet != null) {
+        // Extract SNF values from the first row (Header)
+        var snfValues = sheet.rows.first
+            .skip(1) // Skip the first column which is "SNF"
+            .map((cell) => cell?.value?.toString()) // Ensure values are Strings
+            .toList();
+
+        // Extract data from rows starting from the second row
+
+        for (var row in sheet.rows.skip(1)) {
+          // Skip the header row
+          for (int i = 1; i < row.length; i++) {
+            // Start from the second column
+
+            cowtemplist.add({
+              'Fat': row[0]?.value?.toString() ?? '', // Ensure String
+              'SNF': snfValues[i - 1] ?? '', // Corresponding SNF value
+              'Rate': row[i]?.value?.toString() ?? '', // Ensure String
+            });
+          }
+        }
+
+        setState(() {
+          cowtemplist = cowtemplist;
+        });
+      }
+    }
+  }
+
+  void _bufpickExcelFile() async {
+    FilePickerResult? result = await FilePicker.platform.pickFiles(
+      type: FileType.custom,
+      allowedExtensions: ['xlsx'],
+    );
+
+    if (result != null) {
+      File file = File(result.files.single.path!);
+      var bytes = file.readAsBytesSync();
+      var excel = Excel.decodeBytes(bytes);
+
+      // Assuming data is in the first sheet
+      var sheet = excel.tables[excel.tables.keys.first];
+      List<Map<String, dynamic>> buftemplist = [];
+
+      if (sheet != null) {
+        // Extract SNF values from the first row (Header)
+        var snfValues = sheet.rows.first
+            .skip(1) // Skip the first column which is "SNF"
+            .map((cell) => cell?.value?.toString()) // Ensure values are Strings
+            .toList();
+
+        // Extract data from rows starting from the second row
+
+        for (var row in sheet.rows.skip(1)) {
+          // Skip the header row
+          for (int i = 1; i < row.length; i++) {
+            // Start from the second column
+
+            buftemplist.add({
+              'Fat': row[0]?.value?.toString() ?? '', // Ensure String
+              'SNF': snfValues[i - 1] ?? '', // Corresponding SNF value
+              'Rate': row[i]?.value?.toString() ?? '', // Ensure String
+            });
+          }
+        }
+
+        setState(() {
+          bufrateList = buftemplist;
+        });
+      }
     }
   }
 }
