@@ -1,5 +1,6 @@
 import 'package:bmc/customewidgets/custom_textfield.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class Membermaster extends StatefulWidget {
   const Membermaster({super.key});
@@ -20,15 +21,19 @@ class _MembermasterState extends State<Membermaster> {
   TextEditingController pincodeController = TextEditingController();
   TextEditingController buffalodepositController = TextEditingController();
   TextEditingController branchController = TextEditingController();
-  TextEditingController phonenumberController = TextEditingController();
+  TextEditingController mobilenumber1Controller = TextEditingController();
   TextEditingController cowcommitionController = TextEditingController();
   TextEditingController ifsccodeController = TextEditingController();
-  TextEditingController mobilenumberController = TextEditingController();
+  TextEditingController mobilenumber2Controller = TextEditingController();
   TextEditingController buffalocommitionController = TextEditingController();
   TextEditingController fssaiController = TextEditingController();
   TextEditingController fixeddepositController = TextEditingController();
   TextEditingController advancereduceController = TextEditingController();
   TextEditingController taxnameController = TextEditingController();
+  TextEditingController talukaController = TextEditingController();
+  TextEditingController districtController = TextEditingController();
+  TextEditingController rateController = TextEditingController();
+  TextEditingController rootController = TextEditingController();
 
   final List<Map<String, String>> talukaList = [
     {"code": "201", "name": "Baramati"},
@@ -55,11 +60,19 @@ class _MembermasterState extends State<Membermaster> {
   int? selectedVillageCode;
 
   final List<Map<String, String>> rootList = [
-    {"code": "301", "name": "Route 1"},
-    {"code": "302", "name": "Route 2"},
-    {"code": "303", "name": "Route 3"},
+    {"code": "101", "name": "Kagal "},
+    {"code": "102", "name": "Hupri "},
+    {"code": "103", "name": "Ich "},
   ];
   int? selectedRootCode;
+
+  final List<Map<String, dynamic>> rateChartList = [
+    {"code": 101, "name": "Dairy Chart"},
+    {"code": 102, "name": "Buffalo Rate"},
+    {"code": 103, "name": "Cow Rate"},
+  ];
+
+  int? selectedRateCode;
 
   bool isChecked = false;
   String selectedOption = 'Option 1';
@@ -113,14 +126,19 @@ class _MembermasterState extends State<Membermaster> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blueAccent.shade100,
+        iconTheme: IconThemeData(
+          color: Color.fromARGB(255, 58, 245, 226),
+          size: 25,
+        ),
+        toolbarHeight: 40,
+        backgroundColor: Colors.indigo.shade300,
         centerTitle: true,
         title: const Text(
-          'Member Master',
+          'Society Master',
           style: TextStyle(
             fontSize: 24,
             fontFamily: 'Roboto',
-            color: Colors.white,
+            color: Color.fromARGB(255, 58, 245, 226),
           ),
         ),
       ),
@@ -132,48 +150,60 @@ class _MembermasterState extends State<Membermaster> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const SizedBox(height: 10),
-                  SizedBox(
-                    height: 60,
-                    width: 200,
-                    child: TextFielDesign(
-                      lbltext: 'Society Code',
-                      textEditingController: societycodeController,
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      textAlign: TextAlign.left,
-                      textInputType: TextInputType.text,
-                      focusNode: societyCodeFocus,
-                      onSubmitted: (value) {
-                        FocusScope.of(context).requestFocus(societyNameFocus);
-                      },
-                    ),
-                  ),
-                  const SizedBox(height: 10),
-                  SizedBox(
-                    width: 200,
-                    child: DropdownButtonFormField<int>(
-                      decoration: InputDecoration(
-                        border: const OutlineInputBorder(),
-                        labelText: 'Root Name',
-                        focusColor: Colors.blue,
+                  SizedBox(height: 10),
+                  Row(
+                    children: [
+                      SizedBox(
+                        height: 60,
+                        width: 200,
+                        child: TextFielDesign(
+                          lbltext: 'Society Code',
+                          textEditingController: societycodeController,
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          textAlign: TextAlign.left,
+                          textInputType: TextInputType.text,
+                          focusNode: societyCodeFocus,
+                          onSubmitted: (value) {
+                            FocusScope.of(context)
+                                .requestFocus(societyNameFocus);
+                          },
+                        ),
                       ),
-                      value: selectedRootCode,
-                      onChanged: (int? newValue) {
-                        setState(() {
-                          selectedRootCode = newValue;
-                        });
-                        print("Selected Root Code: $newValue");
-                      },
-                      items: rootList.map((root) {
-                        return DropdownMenuItem<int>(
-                          value:
-                              int.tryParse(root['code'] ?? ""), // ⬅️ int value
-                          child: Text(
-                              root['name'] ?? ""), // ⬅️ only name displayed
-                        );
-                      }).toList(),
-                    ),
+                      const SizedBox(width: 10),
+                      SizedBox(
+                        height: 60,
+                        width: 200,
+                        child: Autocomplete<String>(
+                          optionsBuilder: (TextEditingValue textEditingValue) {
+                            if (textEditingValue.text.isEmpty) {
+                              return const Iterable<String>.empty();
+                            }
+                            return rootList.map((e) => e['name']!).where(
+                                (name) => name.toLowerCase().contains(
+                                    textEditingValue.text.toLowerCase()));
+                          },
+                          onSelected: (String selectedName) {
+                            final selectedItem = rootList
+                                .firstWhere((e) => e['name'] == selectedName);
+                            selectedRootCode =
+                                int.tryParse(selectedItem['code'] ?? '');
+                            print("Selected Root Code: $selectedRootCode");
+                          },
+                          fieldViewBuilder: (context, controller, focusNode,
+                              onFieldSubmitted) {
+                            return TextField(
+                              controller: controller,
+                              focusNode: focusNode,
+                              decoration: InputDecoration(
+                                labelText: 'Root Name',
+                                border: OutlineInputBorder(),
+                              ),
+                            );
+                          },
+                        ),
+                      )
+                    ],
                   ),
 
                   const SizedBox(height: 10),
@@ -183,28 +213,6 @@ class _MembermasterState extends State<Membermaster> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       SizedBox(width: 10),
-                      Row(
-                        children: [
-                          Radio<String>(
-                            value: 'B',
-                            groupValue: selectedOption,
-                            onChanged: (String? value) {
-                              setState(() {
-                                selectedOption = value!;
-                              });
-                            },
-                          ),
-                          Text(
-                            "Buffalo",
-                            style: TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w500,
-                              fontFamily: 'Roboto',
-                            ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(width: 20),
                       Row(
                         children: [
                           Radio<String>(
@@ -222,7 +230,30 @@ class _MembermasterState extends State<Membermaster> {
                               fontSize: 14,
                               fontWeight: FontWeight.w500,
                               fontFamily: 'Roboto',
+                              color: Colors.lightBlue.shade900,
                             ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(width: 20),
+                      Row(
+                        children: [
+                          Radio<String>(
+                            value: 'B',
+                            groupValue: selectedOption,
+                            onChanged: (String? value) {
+                              setState(() {
+                                selectedOption = value!;
+                              });
+                            },
+                          ),
+                          Text(
+                            "Buffalo",
+                            style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.w500,
+                                fontFamily: 'Roboto',
+                                color: Colors.lightBlue.shade900),
                           ),
                         ],
                       ),
@@ -244,6 +275,7 @@ class _MembermasterState extends State<Membermaster> {
                               fontSize: 14,
                               fontWeight: FontWeight.w500,
                               fontFamily: 'Roboto',
+                              color: Colors.lightBlue.shade900,
                             ),
                           ),
                         ],
@@ -283,13 +315,14 @@ class _MembermasterState extends State<Membermaster> {
                           fontWeight: FontWeight.bold,
                           textAlign: TextAlign.left,
                           textInputType: TextInputType.text,
+                          prefixIcon: Icons.location_on,
                           focusNode: addressFocus,
                           onSubmitted: (value) {
                             FocusScope.of(context).requestFocus(pinCodeFocus);
                           },
                         ),
                       ),
-                      SizedBox(width: 15),
+                      SizedBox(width: 10),
                       SizedBox(
                         height: 60,
                         width: 260,
@@ -299,7 +332,10 @@ class _MembermasterState extends State<Membermaster> {
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
                           textAlign: TextAlign.left,
-                          textInputType: TextInputType.text,
+                          textInputType: TextInputType.number,
+                          inputFormatters: [
+                            FilteringTextInputFormatter.digitsOnly
+                          ],
                           focusNode: accountNumberFocus,
                           onSubmitted: (value) {
                             FocusScope.of(context).requestFocus(bankNameFocus);
@@ -344,8 +380,12 @@ class _MembermasterState extends State<Membermaster> {
                           textEditingController: cowdepositController,
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
-                          textAlign: TextAlign.left,
-                          textInputType: TextInputType.text,
+                          textAlign: TextAlign.center,
+                          textInputType: TextInputType.number,
+                          inputFormatters: [
+                            FilteringTextInputFormatter.allow(
+                                RegExp(r'^\d*\.?\d{0,2}'))
+                          ],
                           focusNode: cowDepositFocus,
                           onSubmitted: (value) {
                             FocusScope.of(context)
@@ -385,6 +425,7 @@ class _MembermasterState extends State<Membermaster> {
                           fontWeight: FontWeight.bold,
                           textAlign: TextAlign.left,
                           textInputType: TextInputType.text,
+                          prefixIcon: Icons.pin,
                           focusNode: pinCodeFocus,
                           onSubmitted: (value) {
                             FocusScope.of(context)
@@ -401,8 +442,12 @@ class _MembermasterState extends State<Membermaster> {
                           textEditingController: buffalodepositController,
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
-                          textAlign: TextAlign.left,
-                          textInputType: TextInputType.text,
+                          textAlign: TextAlign.center,
+                          textInputType: TextInputType.number,
+                          inputFormatters: [
+                            FilteringTextInputFormatter.allow(
+                                RegExp(r'^\d*\.?\d{0,2}'))
+                          ],
                           focusNode: buffaloDepositFocus,
                           onSubmitted: (value) {
                             FocusScope.of(context)
@@ -436,14 +481,14 @@ class _MembermasterState extends State<Membermaster> {
                         height: 60,
                         width: 200,
                         child: TextFielDesign(
-                          lbltext: 'Phone No',
-                          textEditingController: phonenumberController,
+                          lbltext: 'Mobile No 1',
+                          textEditingController: mobilenumber2Controller,
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
                           textAlign: TextAlign.left,
                           textInputType: TextInputType.text,
-                          focusNode: phoneNumberFocus,
                           prefixIcon: Icons.phone,
+                          focusNode: phoneNumberFocus,
                           onSubmitted: (value) {
                             FocusScope.of(context).requestFocus(mobileFocus);
                           },
@@ -458,8 +503,12 @@ class _MembermasterState extends State<Membermaster> {
                           textEditingController: cowcommitionController,
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
-                          textAlign: TextAlign.left,
-                          textInputType: TextInputType.text,
+                          textAlign: TextAlign.center,
+                          textInputType: TextInputType.number,
+                          inputFormatters: [
+                            FilteringTextInputFormatter.allow(
+                                RegExp(r'^\d*\.?\d{0,2}'))
+                          ],
                           focusNode: cowCommissionFocus,
                           onSubmitted: (value) {
                             FocusScope.of(context)
@@ -493,8 +542,8 @@ class _MembermasterState extends State<Membermaster> {
                         height: 60,
                         width: 200,
                         child: TextFielDesign(
-                          lbltext: 'Mobile No',
-                          textEditingController: mobilenumberController,
+                          lbltext: 'Mobile No 2',
+                          textEditingController: mobilenumber2Controller,
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
                           textAlign: TextAlign.left,
@@ -515,8 +564,12 @@ class _MembermasterState extends State<Membermaster> {
                           textEditingController: buffalocommitionController,
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
-                          textAlign: TextAlign.left,
-                          textInputType: TextInputType.text,
+                          textAlign: TextAlign.center,
+                          textInputType: TextInputType.number,
+                          inputFormatters: [
+                            FilteringTextInputFormatter.allow(
+                                RegExp(r'^\d*\.?\d{0,2}'))
+                          ],
                           focusNode: buffaloCommissionFocus,
                           onSubmitted: (value) {
                             FocusScope.of(context)
@@ -548,27 +601,43 @@ class _MembermasterState extends State<Membermaster> {
                   Row(
                     children: [
                       SizedBox(
-                        height: 60,
                         width: 200,
-                        child: DropdownButtonFormField<int>(
-                          value: selectedTalukaCode,
-                          decoration: InputDecoration(
-                            labelText: 'Taluka',
-                            border: OutlineInputBorder(),
-                          ),
-                          items: talukaList.map((taluka) {
-                            return DropdownMenuItem<int>(
-                              value: int.tryParse(
-                                  taluka['code'] ?? ""), // value = int
-                              child:
-                                  Text(taluka['name'] ?? ""), // display = name
+                        height: 60,
+                        child: Autocomplete<String>(
+                          optionsBuilder: (TextEditingValue textEditingValue) {
+                            if (textEditingValue.text.isEmpty) {
+                              return const Iterable<String>.empty();
+                            }
+                            return talukaList
+                                .map((e) => e['name'] ?? "")
+                                .where((name) => name.toLowerCase().contains(
+                                    textEditingValue.text.toLowerCase()))
+                                .toList();
+                          },
+                          displayStringForOption: (String option) => option,
+                          onSelected: (String selectedName) {
+                            final selectedTaluka = talukaList.firstWhere(
+                              (element) => element['name'] == selectedName,
+                              orElse: () => {"code": "0"},
                             );
-                          }).toList(),
-                          onChanged: (int? newValue) {
-                            setState(() {
-                              selectedTalukaCode = newValue;
-                            });
-                            print("Selected Taluka Code: $newValue");
+                            selectedTalukaCode =
+                                int.tryParse(selectedTaluka['code'] ?? "");
+                            print(
+                                "Selected Taluka: $selectedName, Code: $selectedTalukaCode");
+                          },
+                          fieldViewBuilder: (BuildContext context,
+                              TextEditingController textEditingController,
+                              FocusNode focusNode,
+                              VoidCallback onFieldSubmitted) {
+                            talukaController = textEditingController;
+                            return TextField(
+                              controller: textEditingController,
+                              focusNode: focusNode,
+                              decoration: const InputDecoration(
+                                labelText: 'Taluka',
+                                border: OutlineInputBorder(),
+                              ),
+                            );
                           },
                         ),
                       ),
@@ -581,7 +650,7 @@ class _MembermasterState extends State<Membermaster> {
                           textEditingController: fixeddepositController,
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
-                          textAlign: TextAlign.left,
+                          textAlign: TextAlign.center,
                           textInputType: TextInputType.text,
                           focusNode: fixedDepositFocus,
                           onSubmitted: (value) {
@@ -599,8 +668,12 @@ class _MembermasterState extends State<Membermaster> {
                           textEditingController: advancereduceController,
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
-                          textAlign: TextAlign.center,
-                          textInputType: TextInputType.text,
+                          textAlign: TextAlign.right,
+                          textInputType: TextInputType.number,
+                          inputFormatters: [
+                            FilteringTextInputFormatter.allow(
+                                RegExp(r'^\d*\.?\d{0,2}'))
+                          ],
                           focusNode: advanceReduceFocus,
                           onSubmitted: (value) {
                             FocusScope.of(context).unfocus();
@@ -610,58 +683,100 @@ class _MembermasterState extends State<Membermaster> {
                     ],
                   ),
                   SizedBox(height: 10),
-                  SizedBox(
-                    width: 200,
-                    child: DropdownButtonFormField<int>(
-                      decoration: InputDecoration(
-                        labelText: 'District',
-                        border: OutlineInputBorder(),
+                  Row(
+                    children: [
+                      SizedBox(
+                        width: 200,
+                        height: 60,
+                        child: Autocomplete<String>(
+                          optionsBuilder: (TextEditingValue textEditingValue) {
+                            if (textEditingValue.text == '') {
+                              return const Iterable<String>.empty();
+                            }
+                            return districtList.map((e) => e['name']!).where(
+                                (String option) => option
+                                    .toLowerCase()
+                                    .contains(
+                                        textEditingValue.text.toLowerCase()));
+                          },
+                          onSelected: (String selectedName) {
+                            final selectedDistrict = districtList.firstWhere(
+                                (element) => element['name'] == selectedName);
+                            selectedDistrictCode =
+                                int.tryParse(selectedDistrict['code'] ?? '');
+                            print(
+                                "Selected District Code: $selectedDistrictCode");
+                          },
+                          fieldViewBuilder: (BuildContext context,
+                              TextEditingController textEditingController,
+                              FocusNode focusNode,
+                              VoidCallback onFieldSubmitted) {
+                            return TextField(
+                              controller: textEditingController,
+                              focusNode: focusNode,
+                              decoration: InputDecoration(
+                                labelText: 'District',
+                                border: OutlineInputBorder(),
+                              ),
+                            );
+                          },
+                        ),
                       ),
-                      value: selectedDistrictCode,
-                      onChanged: (int? newValue) {
-                        setState(() {
-                          selectedDistrictCode = newValue;
-                        });
-                        print("Selected District Code: $newValue");
-                      },
-                      items: districtList.map((district) {
-                        return DropdownMenuItem<int>(
-                          value: int.tryParse(district["code"] ?? ""),
-                          child: Text(district["name"] ?? ""),
-                        );
-                      }).toList(),
-                    ),
+                      SizedBox(width: 10),
+                      SizedBox(
+                        width: 200,
+                        height: 60,
+                        child: Autocomplete<String>(
+                          optionsBuilder: (TextEditingValue textEditingValue) {
+                            if (textEditingValue.text.isEmpty) {
+                              return const Iterable<String>.empty();
+                            }
+                            return rateChartList
+                                .map((e) => e['name'] as String)
+                                .where((rate) => rate.toLowerCase().contains(
+                                    textEditingValue.text.toLowerCase()));
+                          },
+                          onSelected: (String selectedName) {
+                            final selected = rateChartList
+                                .firstWhere((e) => e['name'] == selectedName);
+                            selectedRateCode = selected['code'];
+                            print("Selected Rate Code: $selectedRateCode");
+                          },
+                          fieldViewBuilder: (context, controller, focusNode,
+                              onFieldSubmitted) {
+                            return TextField(
+                              controller: controller,
+                              focusNode: focusNode,
+                              decoration: InputDecoration(
+                                labelText: 'Rate Chart',
+                                border: OutlineInputBorder(),
+                                prefixIcon: Icon(Icons.bar_chart),
+                              ),
+                            );
+                          },
+                        ),
+                      ),
+                      SizedBox(width: 10),
+                      SizedBox(
+                        width: 150,
+                        height: 60,
+                        child: CheckboxListTile(
+                          title: Text("On/Off", style: TextStyle(fontSize: 16)),
+                          contentPadding: EdgeInsets.zero,
+                          dense: true,
+                          visualDensity: VisualDensity.compact,
+                          controlAffinity: ListTileControlAffinity.leading,
+                          value: isChecked,
+                          onChanged: (bool? value) {
+                            setState(() {
+                              isChecked = value!;
+                            });
+                          },
+                        ),
+                      ),
+                    ],
                   ),
-                  SizedBox(height: 10),
-                  SizedBox(
-                    height: 60,
-                    width: 200,
-                    child: TextFielDesign(
-                      lbltext: 'Tax Name',
-                      textEditingController: taxnameController,
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      textAlign: TextAlign.left,
-                      textInputType: TextInputType.text,
-                      focusNode: taxNameFocus,
-                      onSubmitted: (value) {
-                        FocusScope.of(context).requestFocus(cowDepositFocus);
-                      },
-                    ),
-                  ),
-                  CheckboxListTile(
-                    title: Text("ON/OFF", style: TextStyle(fontSize: 16)),
-                    contentPadding: EdgeInsets.zero,
-                    dense: true,
-                    visualDensity: VisualDensity.compact,
-                    controlAffinity: ListTileControlAffinity.leading,
-                    value: isChecked,
-                    onChanged: (bool? value) {
-                      setState(() {
-                        isChecked = value!;
-                      });
-                    },
-                  ),
+                  SizedBox(height: 100),
                 ],
               ),
             ),

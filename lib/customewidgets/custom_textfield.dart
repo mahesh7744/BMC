@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class TextFielDesign extends StatelessWidget {
   final String lbltext;
@@ -14,7 +15,8 @@ class TextFielDesign extends StatelessWidget {
   final String? prefixText;
   final bool isEnabled;
   final bool isReadOnly;
-  final FocusNode? focusNode; // Fixed the focus node naming issue
+  final FocusNode? focusNode;
+  final List<TextInputFormatter>? inputFormatters; // ✅ Changed here
 
   const TextFielDesign({
     super.key,
@@ -31,15 +33,17 @@ class TextFielDesign extends StatelessWidget {
     this.prefixText,
     this.isEnabled = true,
     this.isReadOnly = false,
-    this.focusNode, // Corrected the parameter name
+    this.focusNode,
+    this.inputFormatters,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextField(
-      focusNode: focusNode, // Use only the correct focus node
+      focusNode: focusNode,
       controller: textEditingController,
       keyboardType: textInputType,
+      inputFormatters: inputFormatters,
       textAlign: textAlign,
       style: TextStyle(
         fontSize: fontSize,
