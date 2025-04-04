@@ -13,8 +13,8 @@ class CustomButton extends StatefulWidget {
     Key? key,
     required this.text,
     required this.icon,
-    required this.onPressed, 
-   this.startColor =const Color(0xFF8EECF5),
+    required this.onPressed,
+    this.startColor = const Color(0xFF8EECF5),
     this.endColor = const Color(0xFF8EECF8),
     this.width = 200,
     this.height = 55,
@@ -24,7 +24,8 @@ class CustomButton extends StatefulWidget {
   _CustomButtonState createState() => _CustomButtonState();
 }
 
-class _CustomButtonState extends State<CustomButton> with SingleTickerProviderStateMixin {
+class _CustomButtonState extends State<CustomButton>
+    with SingleTickerProviderStateMixin {
   double _scale = 1.0;
 
   void _onTapDown(TapDownDetails details) {
@@ -55,7 +56,7 @@ class _CustomButtonState extends State<CustomButton> with SingleTickerProviderSt
             borderRadius: BorderRadius.circular(8),
             boxShadow: [
               BoxShadow(
-                color: widget.startColor.withValues(alpha:  0.5),
+                color: widget.startColor.withValues(alpha: 0.5),
                 offset: Offset(0, 4),
                 blurRadius: 10,
               ),
@@ -66,7 +67,11 @@ class _CustomButtonState extends State<CustomButton> with SingleTickerProviderSt
             icon: Icon(widget.icon, color: Colors.black54, size: 20),
             label: Text(
               widget.text,
-              style: TextStyle(color: Colors.black, fontSize: 16, fontWeight: FontWeight.bold,fontFamily: 'Roboto'),
+              style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 14,
+                  fontWeight: FontWeight.w400,
+                  fontFamily: 'Roboto'),
             ),
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.transparent,
