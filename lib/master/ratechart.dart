@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:bmc/customewidgets/custom_button.dart';
 import 'package:bmc/customewidgets/custom_textfield.dart';
 import 'package:bmc/customewidgets/date_widget.dart';
 import 'package:excel/excel.dart';
@@ -101,39 +102,13 @@ class _RatechartState extends State<Ratechart> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   SizedBox(width: 10),
-                  ElevatedButton.icon(
-                    onPressed: () {
-                      _cowpickExcelFile();
-                    },
-                    icon: Icon(Icons.add, color: Colors.white),
-                    label: Text("Cow form Excel",
-                        style: TextStyle(color: Colors.white)),
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.blue,
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                    ),
-                  ),
+                  CustomButton(width: 260,height: 40, icon: Icons.chat_rounded,text: 'Cow RateChart From Excel',onPressed: () {
+                    _cowpickExcelFile();
+                  },),
                   SizedBox(width: 10),
-                  ElevatedButton.icon(
-                    onPressed: () {
-                      _bufpickExcelFile();
-                    },
-                    icon: Icon(Icons.add, color: Colors.white),
-                    label: Text("Buffalo form excel",
-                        style: TextStyle(color: Colors.white)),
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.blue,
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                    ),
-                  ),
+                   CustomButton(width: 260,height: 40, icon: Icons.chat_rounded,text: 'Cow RateChart From Excel',onPressed: () {
+                    _bufpickExcelFile();
+                  },),
                 ],
               ),
               Container(
@@ -167,6 +142,7 @@ class _RatechartState extends State<Ratechart> {
                                   fontWeight: FontWeight.bold,
                                   textAlign: TextAlign.center,
                                   focusNode: cowfatFocus,
+                                  
                                   onSubmitted: (value) {
                                     FocusScope.of(context)
                                         .requestFocus(cowsnfFocus);
