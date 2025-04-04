@@ -34,6 +34,7 @@ class _MembermasterState extends State<Membermaster> {
   TextEditingController districtController = TextEditingController();
   TextEditingController rateController = TextEditingController();
   TextEditingController rootController = TextEditingController();
+  TextEditingController villageController = TextEditingController();
 
   final List<Map<String, String>> talukaList = [
     {"code": "201", "name": "Baramati"},
@@ -96,7 +97,10 @@ class _MembermasterState extends State<Membermaster> {
   final FocusNode fixedDepositFocus = FocusNode();
   final FocusNode advanceReduceFocus = FocusNode();
   final FocusNode taxNameFocus = FocusNode();
-
+  final FocusNode rootnameFocus = FocusNode();
+  final FocusNode talukaFocus = FocusNode();
+  final FocusNode districtFocus = FocusNode();
+  final FocusNode rateFocus = FocusNode();
   @override
   void dispose() {
     // FocusNode dispose करणे आवश्यक आहे
@@ -119,6 +123,7 @@ class _MembermasterState extends State<Membermaster> {
     fixedDepositFocus.dispose();
     advanceReduceFocus.dispose();
     taxNameFocus.dispose();
+    rootnameFocus.dispose();
     super.dispose();
   }
 
@@ -165,8 +170,7 @@ class _MembermasterState extends State<Membermaster> {
                           textInputType: TextInputType.text,
                           focusNode: societyCodeFocus,
                           onSubmitted: (value) {
-                            FocusScope.of(context)
-                                .requestFocus(societyNameFocus);
+                            FocusScope.of(context).requestFocus(rootnameFocus);
                           },
                         ),
                       ),
@@ -194,7 +198,11 @@ class _MembermasterState extends State<Membermaster> {
                               onFieldSubmitted) {
                             return TextField(
                               controller: controller,
-                              focusNode: focusNode,
+                              focusNode: rootnameFocus,
+                              onSubmitted: (value) {
+                                FocusScope.of(context)
+                                    .requestFocus(societyNameFocus);
+                              },
                               decoration: InputDecoration(
                                 labelText: 'Root Name',
                                 border: OutlineInputBorder(),
@@ -318,7 +326,7 @@ class _MembermasterState extends State<Membermaster> {
                           prefixIcon: Icons.location_on,
                           focusNode: addressFocus,
                           onSubmitted: (value) {
-                            FocusScope.of(context).requestFocus(pinCodeFocus);
+                            FocusScope.of(context).requestFocus(villageFocus);
                           },
                         ),
                       ),
@@ -347,27 +355,42 @@ class _MembermasterState extends State<Membermaster> {
                   Row(
                     children: [
                       SizedBox(
-                        height: 60,
                         width: 200,
-                        child: DropdownButtonFormField<int>(
-                          value: selectedVillageCode,
-                          decoration: InputDecoration(
-                            labelText: 'Village/City',
-                            border: OutlineInputBorder(),
-                          ),
-                          items: villageList.map((village) {
-                            return DropdownMenuItem<int>(
-                              value: int.tryParse(
-                                  village['code'] ?? ""), // ⬅️ Value is int
-                              child: Text(
-                                  village['name'] ?? ""), // ⬅️ Display is name
+                        height: 60,
+                        child: Autocomplete<String>(
+                          optionsBuilder: (TextEditingValue textEditingValue) {
+                            if (textEditingValue.text == '') {
+                              return const Iterable<String>.empty();
+                            }
+                            return villageList.map((e) => e['name']!).where(
+                                (String option) => option
+                                    .toLowerCase()
+                                    .contains(
+                                        textEditingValue.text.toLowerCase()));
+                          },
+                          onSelected: (String selectedName) {
+                            final selectedVillageCode = villageList.firstWhere(
+                                (element) => element['name'] == selectedName);
+                            selectedDistrictCode =
+                                int.tryParse(selectedVillageCode['code'] ?? '');
+                            print("Selected Vilage Code: $selectedVillageCode");
+                          },
+                          fieldViewBuilder: (BuildContext context,
+                              TextEditingController textEditingController,
+                              FocusNode focusNode,
+                              VoidCallback onFieldSubmitted) {
+                            return TextField(
+                              controller: textEditingController,
+                              focusNode: villageFocus,
+                              onSubmitted: (value) {
+                                FocusScope.of(context)
+                                    .requestFocus(pinCodeFocus);
+                              },
+                              decoration: InputDecoration(
+                                labelText: 'Village/City',
+                                border: OutlineInputBorder(),
+                              ),
                             );
-                          }).toList(),
-                          onChanged: (int? newValue) {
-                            setState(() {
-                              selectedVillageCode = newValue;
-                            });
-                            print("Selected Village Code: $newValue");
                           },
                         ),
                       ),
@@ -551,7 +574,7 @@ class _MembermasterState extends State<Membermaster> {
                           prefixIcon: Icons.mobile_friendly,
                           focusNode: mobileFocus,
                           onSubmitted: (value) {
-                            FocusScope.of(context).requestFocus(taxNameFocus);
+                            FocusScope.of(context).requestFocus(talukaFocus);
                           },
                         ),
                       ),
@@ -632,7 +655,11 @@ class _MembermasterState extends State<Membermaster> {
                             talukaController = textEditingController;
                             return TextField(
                               controller: textEditingController,
-                              focusNode: focusNode,
+                              focusNode: talukaFocus,
+                              onSubmitted: (value) {
+                                FocusScope.of(context)
+                                    .requestFocus(districtFocus);
+                              },
                               decoration: const InputDecoration(
                                 labelText: 'Taluka',
                                 border: OutlineInputBorder(),
@@ -676,7 +703,7 @@ class _MembermasterState extends State<Membermaster> {
                           ],
                           focusNode: advanceReduceFocus,
                           onSubmitted: (value) {
-                            FocusScope.of(context).unfocus();
+                            FocusScope.of(context).requestFocus(rateFocus);
                           },
                         ),
                       ),
@@ -713,7 +740,11 @@ class _MembermasterState extends State<Membermaster> {
                               VoidCallback onFieldSubmitted) {
                             return TextField(
                               controller: textEditingController,
-                              focusNode: focusNode,
+                              focusNode: districtFocus,
+                              onSubmitted: (value) {
+                                FocusScope.of(context)
+                                    .requestFocus(cowDepositFocus);
+                              },
                               decoration: InputDecoration(
                                 labelText: 'District',
                                 border: OutlineInputBorder(),
@@ -746,7 +777,10 @@ class _MembermasterState extends State<Membermaster> {
                               onFieldSubmitted) {
                             return TextField(
                               controller: controller,
-                              focusNode: focusNode,
+                              focusNode: advanceReduceFocus,
+                              onSubmitted: (value) {
+                                FocusScope.of(context).unfocus();
+                              },
                               decoration: InputDecoration(
                                 labelText: 'Rate Chart',
                                 border: OutlineInputBorder(),
