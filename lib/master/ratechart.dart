@@ -63,331 +63,386 @@ class _RatechartState extends State<Ratechart> {
       ),
       body: SafeArea(
         child: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: Column(
-              children: [
-                SizedBox(height: 20),
-                Container(
-                  height: 500,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Container(
-                        height: 400,
-                        child: Column(
-                          children: [
-                            Text(
-                              'Cow',
-                              style: TextStyle(
+          child: Column(
+            children: [
+              SizedBox(height: 10),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  SizedBox(width: 10),
+                  ElevatedButton.icon(
+                    onPressed: () {
+                      _cowpickExcelFile();
+                    },
+                    icon: Icon(Icons.add, color: Colors.white),
+                    label: Text("Cow form Excel",
+                        style: TextStyle(color: Colors.white)),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.blue,
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                    ),
+                  ),
+                  SizedBox(width: 10),
+                  ElevatedButton.icon(
+                    onPressed: () {
+                      _bufpickExcelFile();
+                    },
+                    icon: Icon(Icons.add, color: Colors.white),
+                    label: Text("Buffalo form excel",
+                        style: TextStyle(color: Colors.white)),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.blue,
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              Container(
+                height: 500,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    SizedBox(width: 10),
+                    Container(
+                      height: 450,
+                      child: Column(
+                        children: [
+                          Text(
+                            'Cow',
+                            style: TextStyle(
+                              fontWeight: FontWeight.w900,
+                              fontSize: 16,
+                              color: Colors.indigoAccent.shade200,
+                            ),
+                          ),
+                          SizedBox(height: 5),
+                          Row(
+                            children: [
+                              SizedBox(
+                                width: 120,
+                                child: TextFielDesign(
+                                  lbltext: 'Fat',
+                                  textEditingController: cowfatController,
+                                  textInputType: TextInputType.text,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                  textAlign: TextAlign.center,
+                                  focusNode: cowfatFocus,
+                                  onSubmitted: (value) {
+                                    FocusScope.of(context)
+                                        .requestFocus(cowsnfFocus);
+                                  },
+                                ),
+                              ),
+                              SizedBox(width: 10),
+                              SizedBox(
+                                width: 120,
+                                child: TextFielDesign(
+                                  lbltext: 'SNF',
+                                  textEditingController: cowsnfController,
+                                  textInputType: TextInputType.text,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                  textAlign: TextAlign.center,
+                                  focusNode: cowsnfFocus,
+                                  onSubmitted: (value) {
+                                    FocusScope.of(context)
+                                        .requestFocus(cowrateFocus);
+                                  },
+                                ),
+                              ),
+                              SizedBox(width: 10),
+                              SizedBox(
+                                width: 120,
+                                child: TextFielDesign(
+                                  lbltext: 'Rate',
+                                  textEditingController: cowrateController,
+                                  textInputType: TextInputType.text,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                  textAlign: TextAlign.right,
+                                  focusNode: cowrateFocus,
+                                  onSubmitted: (value) {
+                                    cowaddDataRow();
+                                  },
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: 10),
+                          Container(
+                            height: 300,
+                            child: SingleChildScrollView(
+                              child: DataTable(
+                                columnSpacing: 10,
+                                border: TableBorder.all(color: Colors.black),
+                                columns: [
+                                  DataColumn(
+                                    label: SizedBox(
+                                      width: 100,
+                                      child: Text(
+                                        'Fat',
+                                        style: TextStyle(
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.bold),
+                                        textAlign: TextAlign.center,
+                                      ),
+                                    ),
+                                  ),
+                                  DataColumn(
+                                    label: SizedBox(
+                                      width: 100,
+                                      child: Text(
+                                        'SNF',
+                                        style: TextStyle(
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.bold),
+                                        textAlign: TextAlign.center,
+                                      ),
+                                    ),
+                                  ),
+                                  DataColumn(
+                                    label: SizedBox(
+                                      width: 100,
+                                      child: Text(
+                                        'Rate',
+                                        style: TextStyle(
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.bold),
+                                        textAlign: TextAlign.center,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                                rows: cowrateList.map((rate) {
+                                  return DataRow(cells: [
+                                    DataCell(
+                                      SizedBox(
+                                        width: 100,
+                                        child: Center(
+                                          child: Text(
+                                            rate["fat"] ?? "",
+                                            textAlign: TextAlign.center,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    DataCell(
+                                      SizedBox(
+                                        width: 100,
+                                        child: Center(
+                                          child: Text(
+                                            rate["snf"] ?? "",
+                                            textAlign: TextAlign.center,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    DataCell(
+                                      SizedBox(
+                                        width: 100,
+                                        child: Center(
+                                          child: Text(
+                                            rate["rate"] ?? "",
+                                            textAlign: TextAlign.center,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ]);
+                                }).toList(),
+                              ),
+                            ),
+                          ),
+                          IconButton(
+                            onPressed: () {
+                              setState(() {
+                                cowrateList.clear();
+                              });
+                            },
+                            icon: const Icon(Icons.delete),
+                            tooltip: 'Clear Cow Rates',
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(width: 40),
+                    Container(
+                      height: 450,
+                      child: Column(
+                        children: [
+                          Text(
+                            'Buffalo',
+                            style: TextStyle(
                                 fontWeight: FontWeight.w900,
                                 fontSize: 16,
-                                color: Colors.indigoAccent.shade200,
-                              ),
-                            ),
-                            SizedBox(height: 5),
-                            Row(
-                              children: [
-                                SizedBox(
-                                  width: 120,
-                                  child: TextFielDesign(
-                                    lbltext: 'Fat',
-                                    textEditingController: cowfatController,
-                                    textInputType: TextInputType.text,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.bold,
-                                    textAlign: TextAlign.center,
-                                    focusNode: cowfatFocus,
-                                    onSubmitted: (value) {
-                                      FocusScope.of(context)
-                                          .requestFocus(cowsnfFocus);
-                                    },
-                                  ),
-                                ),
-                                SizedBox(width: 10),
-                                SizedBox(
-                                  width: 120,
-                                  child: TextFielDesign(
-                                    lbltext: 'SNF',
-                                    textEditingController: cowsnfController,
-                                    textInputType: TextInputType.text,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.bold,
-                                    textAlign: TextAlign.center,
-                                    focusNode: cowsnfFocus,
-                                    onSubmitted: (value) {
-                                      FocusScope.of(context)
-                                          .requestFocus(cowrateFocus);
-                                    },
-                                  ),
-                                ),
-                                SizedBox(width: 10),
-                                SizedBox(
-                                  width: 120,
-                                  child: TextFielDesign(
-                                    lbltext: 'Rate',
-                                    textEditingController: cowrateController,
-                                    textInputType: TextInputType.text,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.bold,
-                                    textAlign: TextAlign.right,
-                                    focusNode: cowrateFocus,
-                                    onSubmitted: (value) {
-                                      cowaddDataRow();
-                                    },
-                                  ),
-                                ),
-                              ],
-                            ),
-                            SizedBox(height: 10),
-                            Container(
-                              height: 300,
-                              child: SingleChildScrollView(
-                                child: DataTable(
-                                  columnSpacing: 10,
-                                  border: TableBorder.all(color: Colors.black),
-                                  columns: [
-                                    DataColumn(
-                                      label: SizedBox(
-                                        width: 100,
-                                        child: Text(
-                                          'Fat',
-                                          style: TextStyle(
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.bold),
-                                          textAlign: TextAlign.center,
-                                        ),
-                                      ),
-                                    ),
-                                    DataColumn(
-                                      label: SizedBox(
-                                        width: 100,
-                                        child: Text(
-                                          'SNF',
-                                          style: TextStyle(
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.bold),
-                                          textAlign: TextAlign.center,
-                                        ),
-                                      ),
-                                    ),
-                                    DataColumn(
-                                      label: SizedBox(
-                                        width: 100,
-                                        child: Text(
-                                          'Rate',
-                                          style: TextStyle(
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.bold),
-                                          textAlign: TextAlign.center,
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                  rows: cowrateList.map((rate) {
-                                    return DataRow(cells: [
-                                      DataCell(
-                                        SizedBox(
-                                          width: 100,
-                                          child: Center(
-                                            child: Text(
-                                              rate["fat"] ?? "",
-                                              textAlign: TextAlign.center,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      DataCell(
-                                        SizedBox(
-                                          width: 100,
-                                          child: Center(
-                                            child: Text(
-                                              rate["snf"] ?? "",
-                                              textAlign: TextAlign.center,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      DataCell(
-                                        SizedBox(
-                                          width: 100,
-                                          child: Center(
-                                            child: Text(
-                                              rate["rate"] ?? "",
-                                              textAlign: TextAlign.center,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ]);
-                                  }).toList(),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      SizedBox(width: 20),
-                      Container(
-                        height: 400,
-                        child: Column(
-                          children: [
-                            Text(
-                              'Buffalo',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w900,
+                                color: Colors.indigoAccent.shade200),
+                          ),
+                          SizedBox(height: 5),
+                          Row(
+                            children: [
+                              SizedBox(
+                                width: 120,
+                                child: TextFielDesign(
+                                  lbltext: 'Fat',
+                                  textEditingController: buffatController,
+                                  textInputType: TextInputType.text,
                                   fontSize: 16,
-                                  color: Colors.indigoAccent.shade200),
-                            ),
-                            SizedBox(height: 5),
-                            Row(
-                              children: [
-                                SizedBox(
-                                  width: 120,
-                                  child: TextFielDesign(
-                                    lbltext: 'Fat',
-                                    textEditingController: buffatController,
-                                    textInputType: TextInputType.text,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.bold,
-                                    textAlign: TextAlign.center,
-                                    focusNode: buffatFocus,
-                                    onSubmitted: (value) {
-                                      FocusScope.of(context)
-                                          .requestFocus(bufsnfFocus);
-                                    },
-                                  ),
-                                ),
-                                SizedBox(width: 10),
-                                SizedBox(
-                                  width: 120,
-                                  child: TextFielDesign(
-                                    lbltext: 'SNF',
-                                    textEditingController: bufsnfController,
-                                    textInputType: TextInputType.text,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.bold,
-                                    textAlign: TextAlign.center,
-                                    focusNode: bufsnfFocus,
-                                    onSubmitted: (value) {
-                                      FocusScope.of(context)
-                                          .requestFocus(bufrateFocus);
-                                    },
-                                  ),
-                                ),
-                                SizedBox(width: 10),
-                                SizedBox(
-                                  width: 120,
-                                  child: TextFielDesign(
-                                    lbltext: 'Rate',
-                                    textEditingController: bufrateController,
-                                    textInputType: TextInputType.text,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.bold,
-                                    textAlign: TextAlign.right,
-                                    focusNode: bufrateFocus,
-                                    onSubmitted: (value) {
-                                      bufaddDataRow();
-                                    },
-                                  ),
-                                ),
-                              ],
-                            ),
-                            SizedBox(height: 10),
-                            Container(
-                              height: 300,
-                              child: SingleChildScrollView(
-                                child: DataTable(
-                                  columnSpacing: 10,
-                                  border: TableBorder.all(color: Colors.black),
-                                  columns: [
-                                    DataColumn(
-                                      label: SizedBox(
-                                        width: 100,
-                                        child: Text(
-                                          'Fat',
-                                          style: TextStyle(
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                          textAlign: TextAlign.center,
-                                        ),
-                                      ),
-                                    ),
-                                    DataColumn(
-                                      label: SizedBox(
-                                        width: 100,
-                                        child: Text(
-                                          'SNF',
-                                          style: TextStyle(
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                          textAlign: TextAlign.center,
-                                        ),
-                                      ),
-                                    ),
-                                    DataColumn(
-                                      label: SizedBox(
-                                        width: 100,
-                                        child: Text(
-                                          'Rate',
-                                          style: TextStyle(
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.bold),
-                                          textAlign: TextAlign.center,
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                  rows: bufrateList.map((rate) {
-                                    return DataRow(cells: [
-                                      DataCell(
-                                        SizedBox(
-                                          width: 100,
-                                          child: Center(
-                                            child: Text(
-                                              rate["fat"] ?? "",
-                                              textAlign: TextAlign.center,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      DataCell(
-                                        SizedBox(
-                                          width: 100,
-                                          child: Center(
-                                            child: Text(
-                                              rate["snf"] ?? "",
-                                              textAlign: TextAlign.center,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      DataCell(
-                                        SizedBox(
-                                          width: 100,
-                                          child: Center(
-                                            child: Text(
-                                              rate["rate"] ?? "",
-                                              textAlign: TextAlign.center,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ]);
-                                  }).toList(),
+                                  fontWeight: FontWeight.bold,
+                                  textAlign: TextAlign.center,
+                                  focusNode: buffatFocus,
+                                  onSubmitted: (value) {
+                                    FocusScope.of(context)
+                                        .requestFocus(bufsnfFocus);
+                                  },
                                 ),
                               ),
+                              SizedBox(width: 10),
+                              SizedBox(
+                                width: 120,
+                                child: TextFielDesign(
+                                  lbltext: 'SNF',
+                                  textEditingController: bufsnfController,
+                                  textInputType: TextInputType.text,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                  textAlign: TextAlign.center,
+                                  focusNode: bufsnfFocus,
+                                  onSubmitted: (value) {
+                                    FocusScope.of(context)
+                                        .requestFocus(bufrateFocus);
+                                  },
+                                ),
+                              ),
+                              SizedBox(width: 10),
+                              SizedBox(
+                                width: 120,
+                                child: TextFielDesign(
+                                  lbltext: 'Rate',
+                                  textEditingController: bufrateController,
+                                  textInputType: TextInputType.text,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                  textAlign: TextAlign.right,
+                                  focusNode: bufrateFocus,
+                                  onSubmitted: (value) {
+                                    bufaddDataRow();
+                                  },
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: 10),
+                          Container(
+                            height: 300,
+                            child: SingleChildScrollView(
+                              child: DataTable(
+                                columnSpacing: 10,
+                                border: TableBorder.all(color: Colors.black),
+                                columns: [
+                                  DataColumn(
+                                    label: SizedBox(
+                                      width: 100,
+                                      child: Text(
+                                        'Fat',
+                                        style: TextStyle(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                        textAlign: TextAlign.center,
+                                      ),
+                                    ),
+                                  ),
+                                  DataColumn(
+                                    label: SizedBox(
+                                      width: 100,
+                                      child: Text(
+                                        'SNF',
+                                        style: TextStyle(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                        textAlign: TextAlign.center,
+                                      ),
+                                    ),
+                                  ),
+                                  DataColumn(
+                                    label: SizedBox(
+                                      width: 100,
+                                      child: Text(
+                                        'Rate',
+                                        style: TextStyle(
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.bold),
+                                        textAlign: TextAlign.center,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                                rows: bufrateList.map((rate) {
+                                  return DataRow(cells: [
+                                    DataCell(
+                                      SizedBox(
+                                        width: 100,
+                                        child: Center(
+                                          child: Text(
+                                            rate["fat"] ?? "",
+                                            textAlign: TextAlign.center,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    DataCell(
+                                      SizedBox(
+                                        width: 100,
+                                        child: Center(
+                                          child: Text(
+                                            rate["snf"] ?? "",
+                                            textAlign: TextAlign.center,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    DataCell(
+                                      SizedBox(
+                                        width: 100,
+                                        child: Center(
+                                          child: Text(
+                                            rate["rate"] ?? "",
+                                            textAlign: TextAlign.center,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ]);
+                                }).toList(),
+                              ),
                             ),
-                          ],
-                        ),
+                          ),
+                          IconButton(
+                            onPressed: () {
+                              setState(() {
+                                bufrateList.clear();
+                              });
+                            },
+                            icon: const Icon(Icons.delete),
+                            tooltip: 'Clear Cow Rates',
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
@@ -472,15 +527,15 @@ class _RatechartState extends State<Ratechart> {
             // Start from the second column
 
             cowtemplist.add({
-              'Fat': row[0]?.value?.toString() ?? '', // Ensure String
-              'SNF': snfValues[i - 1] ?? '', // Corresponding SNF value
-              'Rate': row[i]?.value?.toString() ?? '', // Ensure String
+              'fat': row[0]?.value?.toString() ?? '', // Ensure String
+              'snf': snfValues[i - 1] ?? '', // Corresponding SNF value
+              'rate': row[i]?.value?.toString() ?? '', // Ensure String
             });
           }
         }
 
         setState(() {
-          cowtemplist = cowtemplist;
+          cowrateList = cowtemplist;
         });
       }
     }
@@ -516,9 +571,9 @@ class _RatechartState extends State<Ratechart> {
             // Start from the second column
 
             buftemplist.add({
-              'Fat': row[0]?.value?.toString() ?? '', // Ensure String
-              'SNF': snfValues[i - 1] ?? '', // Corresponding SNF value
-              'Rate': row[i]?.value?.toString() ?? '', // Ensure String
+              'fat': row[0]?.value?.toString() ?? '', // Ensure String
+              'snf': snfValues[i - 1] ?? '', // Corresponding SNF value
+              'rate': row[i]?.value?.toString() ?? '', // Ensure String
             });
           }
         }
