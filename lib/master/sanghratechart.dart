@@ -7,14 +7,14 @@ import 'package:excel/excel.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 
-class Ratechart extends StatefulWidget {
-  const Ratechart({super.key});
+class Sanghratechart extends StatefulWidget {
+  const Sanghratechart({super.key});
 
   @override
-  State<Ratechart> createState() => _RatechartState();
+  State<Sanghratechart> createState() => _SanghratechartState();
 }
 
-class _RatechartState extends State<Ratechart> {
+class _SanghratechartState extends State<Sanghratechart> {
   TextEditingController cowfatController = TextEditingController();
   TextEditingController cowsnfController = TextEditingController();
   TextEditingController cowrateController = TextEditingController();
@@ -59,7 +59,7 @@ class _RatechartState extends State<Ratechart> {
         backgroundColor: Colors.blueAccent.shade100,
         centerTitle: true,
         title: const Text(
-          'Rate Chart',
+          'Sangh Rate Chart',
           style: TextStyle(
             fontSize: 24,
             fontFamily: 'Roboto',

@@ -1,5 +1,9 @@
+import 'package:bmc/master/accountmaster.dart';
 import 'package:bmc/master/membermaster.dart';
 import 'package:bmc/master/ratechart.dart';
+import 'package:bmc/master/sanghmaster.dart';
+import 'package:bmc/master/sanghratechart.dart';
+import 'package:bmc/master/supplymaster.dart';
 import 'package:flutter/material.dart';
 
 class Homepage extends StatefulWidget {
@@ -38,6 +42,7 @@ class _HomepageState extends State<Homepage> {
               },
               child: Text("Member Master"),
             ),
+            SizedBox(height: 5),
             ElevatedButton(
               onPressed: () {
                 Navigator.push(
@@ -46,6 +51,46 @@ class _HomepageState extends State<Homepage> {
                 );
               },
               child: Text("Rate Chart"),
+            ),
+            SizedBox(height: 5),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Accountmaster()),
+                );
+              },
+              child: Text("Account Master"),
+            ),
+            SizedBox(height: 5),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Supplymaster()),
+                );
+              },
+              child: Text("Supplyer Master"),
+            ),
+            SizedBox(height: 5),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Sanghmaster()),
+                );
+              },
+              child: Text("Sangh Master"),
+            ),
+            SizedBox(height: 5),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Sanghratechart()),
+                );
+              },
+              child: Text("Sangh rate chart"),
             ),
           ],
         ),

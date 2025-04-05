@@ -1,3 +1,4 @@
+import 'package:bmc/customewidgets/custom_button.dart';
 import 'package:bmc/customewidgets/custom_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -101,6 +102,9 @@ class _MembermasterState extends State<Membermaster> {
   final FocusNode talukaFocus = FocusNode();
   final FocusNode districtFocus = FocusNode();
   final FocusNode rateFocus = FocusNode();
+  final FocusNode deleteFocus = FocusNode();
+  final FocusNode saveFocus = FocusNode();
+
   @override
   void dispose() {
     // FocusNode dispose करणे आवश्यक आहे
@@ -124,6 +128,8 @@ class _MembermasterState extends State<Membermaster> {
     advanceReduceFocus.dispose();
     taxNameFocus.dispose();
     rootnameFocus.dispose();
+    deleteFocus.dispose();
+    saveFocus.dispose();
     super.dispose();
   }
 
@@ -777,9 +783,9 @@ class _MembermasterState extends State<Membermaster> {
                               onFieldSubmitted) {
                             return TextField(
                               controller: controller,
-                              focusNode: advanceReduceFocus,
+                              focusNode: rateFocus,
                               onSubmitted: (value) {
-                                FocusScope.of(context).unfocus();
+                                FocusScope.of(context).requestFocus(saveFocus);
                               },
                               decoration: InputDecoration(
                                 labelText: 'Rate Chart',
@@ -807,6 +813,32 @@ class _MembermasterState extends State<Membermaster> {
                             });
                           },
                         ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 20),
+                  Row(
+                    children: [
+                      CustomButton(
+                        width: 100,
+                        height: 40,
+                        text: 'Delete',
+                        icon: Icons.delete,
+                        onPressed: () {},
+                      ),
+                      SizedBox(width: 20),
+                      CustomButton(
+                        width: 100,
+                        height: 40,
+                        text: 'Save',
+                        focusNode: saveFocus,
+                        icon: Icons.save,
+                        onPressed: () {
+                          FocusScope.of(context).requestFocus(societyCodeFocus);
+                        },
+                        onSubmitted: (value) {
+                          FocusScope.of(context).requestFocus(societyCodeFocus);
+                        },
                       ),
                     ],
                   ),

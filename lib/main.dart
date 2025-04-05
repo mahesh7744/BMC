@@ -1,6 +1,10 @@
 import 'dart:io';
 
+import 'package:bmc/master/accountmaster.dart';
 import 'package:bmc/master/membermaster.dart';
+import 'package:bmc/master/sanghmaster.dart';
+import 'package:bmc/master/sanghratechart.dart';
+import 'package:bmc/master/supplymaster.dart';
 import 'package:bmc/other/homepage.dart';
 import 'package:flutter/material.dart';
 import 'package:window_manager/window_manager.dart';
@@ -32,6 +36,10 @@ class MyApp extends StatelessWidget {
       routes: {
         "/homepage": (context) => Homepage(),
         "/membermaster": (context) => Membermaster(),
+        "/accountmaster": (context) => Accountmaster(),
+        "/vaparimaster": (context) => Supplymaster(),
+        "/sanghmaster": (context) => Sanghmaster(),
+        "/sanghratechart": (context) => Sanghratechart(),
       },
     );
   }
