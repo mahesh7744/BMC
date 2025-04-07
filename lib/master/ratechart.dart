@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:bmc/customewidgets/custom_button.dart';
 import 'package:bmc/customewidgets/custom_textfield.dart';
 import 'package:bmc/customewidgets/date_widget.dart';
+import 'package:bmc/other/app_localizations.dart';
 import 'package:excel/excel.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
@@ -58,8 +59,8 @@ class _RatechartState extends State<Ratechart> {
       appBar: AppBar(
         backgroundColor: Colors.blueAccent.shade100,
         centerTitle: true,
-        title: const Text(
-          'Rate Chart',
+        title: Text(
+          'ratechart'.tr(context),
           style: TextStyle(
             fontSize: 24,
             fontFamily: 'Roboto',

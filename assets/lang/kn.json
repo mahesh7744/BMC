@@ -1,13 +1,41 @@
 {
-    "societymaster": "Society Master",
-    "ratechart": "Rate Chart ",
-    "accountmaster": "Account Master",
-      "societycode":"Society Code"
-     
-    
+  "societymaster": "Society Master",
+  "societycode":"Code",
+  "cow":"Cow",
+  "buffalo":"Buffalo",
+  "cowandbuffalow":"Cow & Buffalo",
+  "societyname":"Society Name",
+  "address":"Address",
+  "villagecity":"Village/City",
+  "pincode":"Pin Code",
+  "mobile1":"Mobile No 1",
+  "mobile2":"Mobile No 2",
+  "taluka":"Taluka",
+  "district":"District",
+  "cowdeop":"Cow Dep",
+  "bufdeop":"Buf Dep",
+  "cowcomm":"Cow Comm",
+  "bufcomm":"Buf Comm",
+  "fixeddep":"Fixed Dep",
+  "ratechart":"Rate Chart",
+  "accountnumber":"Account Number",
+  "bankname":"Bank Name",
+  "branch":"Branch",
+  "ifsccode":"IFSC Code",
+  "fssainumber":"Fssai Number",
+  "advanceless":"Advance Less"
+
+
+
+  
+  
+
+
+   
+  
 
 
 
 
-     
-  }
+   
+}

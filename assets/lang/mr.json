@@ -1,13 +1,31 @@
 {
-    "societymaster": "सोसायटी मास्टर",
-    "ratechart": "दर पत्रक",
-    "accountmaster": "खाते मास्टर",
-    "societycode":"सोसायटी कोड"
-     
-    
-
-
-
-
-     
-  }
+  "societymaster": "सोसायटी मास्टर",
+  "societycode": "कोड",
+  "rootname":"रूटचे नाव",
+  "cow": "गाय",
+  "buffalo": "म्हैस",
+  "cowandbuffalow": "गाय व म्हैस",
+  "societyname": "सोसायटीचे नाव",
+  "address": "पत्ता",
+  "villagecity": "गाव/शहर",
+  "pincode": "पिन कोड",
+  "mobile1": "मोबाइल क्रमांक 1",
+  "mobile2": "मोबाइल क्रमांक 2",
+  "taluka": "तालुका",
+  "district": "जिल्हा",
+  "cowdep": "गाय डेपॉझिट",
+  "bufdep": "म्हैस डेपॉझिट",
+  "cowcomm": "गाय कमिशन",
+  "bufcomm": "म्हैस कमिशन",
+  "fixeddep": "स्थिर डेपॉझिट",
+  "ratechart": "दर पत्रक",
+  "accountnumber": "खाते क्रमांक",
+  "bankname": "बँकेचे नाव",
+  "branch": "शाखा",
+  "ifsccode": "IFSC कोड",
+  "fssainumber": "FSSAI क्रमांक",
+  "advanceless": "अ‍ॅडव्हान्स कपात",
+  "onoff": "चालू/बंद",
+  "save": "जतन करा",
+  "delete": "रद्द"
+}

@@ -145,8 +145,8 @@ class _MembermasterState extends State<Membermaster> {
         toolbarHeight: 40,
         backgroundColor: Colors.indigo.shade300,
         centerTitle: true,
-        title: const Text(
-          'Society Master',
+        title: Text(
+          'societymaster'.tr(context),
           style: TextStyle(
             fontSize: 24,
             fontFamily: 'Roboto',
@@ -211,7 +211,7 @@ class _MembermasterState extends State<Membermaster> {
                                     .requestFocus(societyNameFocus);
                               },
                               decoration: InputDecoration(
-                                labelText: 'Root Name',
+                                labelText: 'rootname'.tr(context),
                                 border: OutlineInputBorder(),
                               ),
                             );
@@ -240,7 +240,7 @@ class _MembermasterState extends State<Membermaster> {
                             },
                           ),
                           Text(
-                            "Cow",
+                            "cow".tr(context),
                             style: TextStyle(
                               fontSize: 14,
                               fontWeight: FontWeight.w500,
@@ -263,7 +263,7 @@ class _MembermasterState extends State<Membermaster> {
                             },
                           ),
                           Text(
-                            "Buffalo",
+                            "buffalo".tr(context),
                             style: TextStyle(
                                 fontSize: 14,
                                 fontWeight: FontWeight.w500,
@@ -285,7 +285,7 @@ class _MembermasterState extends State<Membermaster> {
                             },
                           ),
                           Text(
-                            "Buffalo & Cow",
+                            "cowandbuffalow".tr(context),
                             style: TextStyle(
                               fontSize: 14,
                               fontWeight: FontWeight.w500,
@@ -303,7 +303,7 @@ class _MembermasterState extends State<Membermaster> {
                     height: 60,
                     width: 360,
                     child: TextFielDesign(
-                      lbltext: 'Society Name',
+                      lbltext: 'societyname'.tr(context),
                       textEditingController: societynameController,
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
@@ -324,7 +324,7 @@ class _MembermasterState extends State<Membermaster> {
                         height: 60,
                         width: 360,
                         child: TextFielDesign(
-                          lbltext: 'Address',
+                          lbltext: 'address'.tr(context),
                           textEditingController: addressController,
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
@@ -342,7 +342,7 @@ class _MembermasterState extends State<Membermaster> {
                         height: 60,
                         width: 260,
                         child: TextFielDesign(
-                          lbltext: 'Account Number',
+                          lbltext: 'accountnumber'.tr(context),
                           textEditingController: accountnumberController,
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
@@ -394,7 +394,7 @@ class _MembermasterState extends State<Membermaster> {
                                     .requestFocus(pinCodeFocus);
                               },
                               decoration: InputDecoration(
-                                labelText: 'Village/City',
+                                labelText: 'villagecity'.tr(context),
                                 border: OutlineInputBorder(),
                               ),
                             );
@@ -406,7 +406,7 @@ class _MembermasterState extends State<Membermaster> {
                         height: 60,
                         width: 150,
                         child: TextFielDesign(
-                          lbltext: 'Cow Dep',
+                          lbltext: 'cowdep'.tr(context),
                           textEditingController: cowdepositController,
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
@@ -428,7 +428,7 @@ class _MembermasterState extends State<Membermaster> {
                         height: 60,
                         width: 260,
                         child: TextFielDesign(
-                          lbltext: 'Bank Name',
+                          lbltext: 'bankname'.tr(context),
                           textEditingController: banknameController,
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
@@ -449,7 +449,7 @@ class _MembermasterState extends State<Membermaster> {
                         height: 60,
                         width: 200,
                         child: TextFielDesign(
-                          lbltext: 'Pin Code',
+                          lbltext: 'pincode'.tr(context),
                           textEditingController: pincodeController,
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
@@ -468,7 +468,7 @@ class _MembermasterState extends State<Membermaster> {
                         height: 60,
                         width: 150,
                         child: TextFielDesign(
-                          lbltext: 'Buf Dep',
+                          lbltext: 'bufdep'.tr(context),
                           textEditingController: buffalodepositController,
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
@@ -490,7 +490,7 @@ class _MembermasterState extends State<Membermaster> {
                         height: 60,
                         width: 260,
                         child: TextFielDesign(
-                          lbltext: 'Branch',
+                          lbltext: 'branch'.tr(context),
                           textEditingController: branchController,
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
@@ -511,7 +511,7 @@ class _MembermasterState extends State<Membermaster> {
                         height: 60,
                         width: 200,
                         child: TextFielDesign(
-                          lbltext: 'Mobile No 1',
+                          lbltext: 'mobile1'.tr(context),
                           textEditingController: mobilenumber2Controller,
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
@@ -529,7 +529,7 @@ class _MembermasterState extends State<Membermaster> {
                         height: 60,
                         width: 150,
                         child: TextFielDesign(
-                          lbltext: 'Cow Comm',
+                          lbltext: 'cowcomm'.tr(context),
                           textEditingController: cowcommitionController,
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
@@ -551,7 +551,7 @@ class _MembermasterState extends State<Membermaster> {
                         height: 60,
                         width: 260,
                         child: TextFielDesign(
-                          lbltext: 'IFSC Code',
+                          lbltext: 'ifsccode'.tr(context),
                           textEditingController: ifsccodeController,
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
@@ -572,7 +572,7 @@ class _MembermasterState extends State<Membermaster> {
                         height: 60,
                         width: 200,
                         child: TextFielDesign(
-                          lbltext: 'Mobile No 2',
+                          lbltext: 'mobile2'.tr(context),
                           textEditingController: mobilenumber2Controller,
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
@@ -590,7 +590,7 @@ class _MembermasterState extends State<Membermaster> {
                         height: 60,
                         width: 150,
                         child: TextFielDesign(
-                          lbltext: 'Buf Comm',
+                          lbltext: 'bufcomm'.tr(context),
                           textEditingController: buffalocommitionController,
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
@@ -612,7 +612,7 @@ class _MembermasterState extends State<Membermaster> {
                         height: 60,
                         width: 260,
                         child: TextFielDesign(
-                          lbltext: 'Fssai Number',
+                          lbltext: 'fssainumber'.tr(context),
                           textEditingController: fssaiController,
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
@@ -667,8 +667,8 @@ class _MembermasterState extends State<Membermaster> {
                                 FocusScope.of(context)
                                     .requestFocus(districtFocus);
                               },
-                              decoration: const InputDecoration(
-                                labelText: 'Taluka',
+                              decoration: InputDecoration(
+                                labelText: 'taluka'.tr(context),
                                 border: OutlineInputBorder(),
                               ),
                             );
@@ -680,7 +680,7 @@ class _MembermasterState extends State<Membermaster> {
                         height: 60,
                         width: 150,
                         child: TextFielDesign(
-                          lbltext: 'Fixed dep',
+                          lbltext: 'fixeddep'.tr(context),
                           textEditingController: fixeddepositController,
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
@@ -698,7 +698,7 @@ class _MembermasterState extends State<Membermaster> {
                         height: 60,
                         width: 150,
                         child: TextFielDesign(
-                          lbltext: 'Advance Less',
+                          lbltext: 'advanceless'.tr(context),
                           textEditingController: advancereduceController,
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
@@ -753,7 +753,7 @@ class _MembermasterState extends State<Membermaster> {
                                     .requestFocus(cowDepositFocus);
                               },
                               decoration: InputDecoration(
-                                labelText: 'District',
+                                labelText: 'district'.tr(context),
                                 border: OutlineInputBorder(),
                               ),
                             );
@@ -789,7 +789,7 @@ class _MembermasterState extends State<Membermaster> {
                                 FocusScope.of(context).requestFocus(saveFocus);
                               },
                               decoration: InputDecoration(
-                                labelText: 'Rate Chart',
+                                labelText: 'ratechart'.tr(context),
                                 border: OutlineInputBorder(),
                                 prefixIcon: Icon(Icons.bar_chart),
                               ),
@@ -802,7 +802,8 @@ class _MembermasterState extends State<Membermaster> {
                         width: 150,
                         height: 60,
                         child: CheckboxListTile(
-                          title: Text("On/Off", style: TextStyle(fontSize: 16)),
+                          title: Text("onoff".tr(context),
+                              style: TextStyle(fontSize: 16)),
                           contentPadding: EdgeInsets.zero,
                           dense: true,
                           visualDensity: VisualDensity.compact,
@@ -823,7 +824,7 @@ class _MembermasterState extends State<Membermaster> {
                       CustomButton(
                         width: 100,
                         height: 40,
-                        text: 'Delete',
+                        text: 'delete'.tr(context),
                         icon: Icons.delete,
                         onPressed: () {},
                       ),
@@ -831,7 +832,7 @@ class _MembermasterState extends State<Membermaster> {
                       CustomButton(
                         width: 100,
                         height: 40,
-                        text: 'Save',
+                        text: 'save'.tr(context),
                         focusNode: saveFocus,
                         icon: Icons.save,
                         onPressed: () {
