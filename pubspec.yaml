@@ -37,6 +37,8 @@ dependencies:
   window_manager: ^0.4.3
   file_picker: ^10.0.0
   excel: ^4.0.6
+  provider: ^6.1.4
+  flutter_localization: ^0.3.2
 
 dev_dependencies:
   flutter_test:
@@ -62,8 +64,10 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
+     - assets/lang/
      - assets/font/NotoSansDevanagari-Regular.ttf
      - assets/font/Roboto-Regular.ttf
+     
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

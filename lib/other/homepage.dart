@@ -2,6 +2,9 @@ import 'package:bmc/master/cattlefeedmaster.dart';
 import 'package:bmc/master/rootmaster.dart';
 import 'package:bmc/master/transportmaster.dart';
 import 'package:bmc/master/usermaster.dart';
+import 'package:bmc/other/app_localizations.dart';
+import 'package:bmc/other/globaldata.dart';
+import 'package:bmc/other/locale_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:bmc/customewidgets/custom_button.dart';
 import 'package:bmc/master/accountmaster.dart';
@@ -10,6 +13,7 @@ import 'package:bmc/master/ratechart.dart';
 import 'package:bmc/master/sanghmaster.dart';
 import 'package:bmc/master/sanghratechart.dart';
 import 'package:bmc/master/supplymaster.dart';
+import 'package:provider/provider.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
@@ -21,6 +25,7 @@ class Homepage extends StatefulWidget {
 class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<LocaleProvider>(context);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blueAccent.shade100,
@@ -33,6 +38,44 @@ class _HomepageState extends State<Homepage> {
             color: Colors.white,
           ),
         ),
+        actions: [
+          DropdownButton<Locale>(
+            hint: Text(
+              "Language",
+              style: TextStyle(
+                  fontFamily: 'Roboto', fontSize: 10, color: Colors.white),
+            ),
+            items: [
+              DropdownMenuItem(
+                child: Text('English'),
+                value: Locale('en'),
+                onTap: () {
+                  provider.setLocale(Locale('en'));
+                  GlobalData.enmrkn = 'en';
+                },
+              ),
+              DropdownMenuItem(
+                child: Text('मराठी'),
+                value: Locale('mr'),
+                onTap: () {
+                  provider.setLocale(Locale('mr'));
+                  GlobalData.enmrkn = 'mr';
+                },
+              ),
+              DropdownMenuItem(
+                child: Text('ಕನ್ನಡ'),
+                value: Locale('kn'),
+                onTap: () {
+                  provider.setLocale(Locale('kn'));
+                  GlobalData.enmrkn = 'kn';
+                },
+              ),
+            ],
+            onChanged: (Locale? locale) {
+              setState(() {});
+            },
+          ),
+        ],
       ),
       body: SafeArea(
         child: SingleChildScrollView(
@@ -43,7 +86,7 @@ class _HomepageState extends State<Homepage> {
                 CustomButton(
                   width: 200,
                   height: 50,
-                  text: 'Member Master',
+                  text: 'societymaster'.tr(context),
                   icon: Icons.next_plan,
                   onPressed: () {
                     Navigator.push(

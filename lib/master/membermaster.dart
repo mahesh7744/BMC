@@ -1,5 +1,6 @@
 import 'package:bmc/customewidgets/custom_button.dart';
 import 'package:bmc/customewidgets/custom_textfield.dart';
+import 'package:bmc/other/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -168,7 +169,7 @@ class _MembermasterState extends State<Membermaster> {
                         height: 60,
                         width: 200,
                         child: TextFielDesign(
-                          lbltext: 'Society Code',
+                          lbltext: 'societycode'.tr(context),
                           textEditingController: societycodeController,
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
