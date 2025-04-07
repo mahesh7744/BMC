@@ -6,6 +6,7 @@ import 'package:bmc/master/usermaster.dart';
 import 'package:bmc/other/app_localizations.dart';
 import 'package:bmc/other/globaldata.dart';
 import 'package:bmc/other/locale_provider.dart';
+import 'package:bmc/transactions/milkcollection.dart';
 import 'package:flutter/material.dart';
 import 'package:bmc/customewidgets/custom_button.dart';
 import 'package:bmc/master/accountmaster.dart';
@@ -234,6 +235,20 @@ class _HomepageState extends State<Homepage> {
                       context,
                       MaterialPageRoute(
                           builder: (context) => const Canmaster()),
+                    );
+                  },
+                ),
+                const SizedBox(height: 10),
+                CustomButton(
+                  width: 200,
+                  height: 50,
+                  text: 'Milk Collection',
+                  icon: Icons.next_plan,
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const Milkcollection()),
                     );
                   },
                 ),
