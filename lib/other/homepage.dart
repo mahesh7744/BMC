@@ -1,3 +1,4 @@
+import 'package:bmc/master/canmaster.dart';
 import 'package:bmc/master/cattlefeedmaster.dart';
 import 'package:bmc/master/rootmaster.dart';
 import 'package:bmc/master/transportmaster.dart';
@@ -219,6 +220,20 @@ class _HomepageState extends State<Homepage> {
                       context,
                       MaterialPageRoute(
                           builder: (context) => const Transportmaster()),
+                    );
+                  },
+                ),
+                const SizedBox(height: 10),
+                CustomButton(
+                  width: 200,
+                  height: 50,
+                  text: 'Can Master',
+                  icon: Icons.next_plan,
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const Canmaster()),
                     );
                   },
                 ),

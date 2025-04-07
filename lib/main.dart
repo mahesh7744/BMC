@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:bmc/master/accountmaster.dart';
+import 'package:bmc/master/canmaster.dart';
 import 'package:bmc/master/cattlefeedmaster.dart';
 import 'package:bmc/master/membermaster.dart';
 import 'package:bmc/master/rootmaster.dart';
@@ -75,6 +76,7 @@ class MyApp extends StatelessWidget {
         "/cattlefeedmaster": (context) => Cattlefeedmaster(),
         "/usermaster": (context) => Usermaster(),
         "/transportmaster": (context) => Transportmaster(),
+        "/canmaster": (context) => Canmaster(),
       },
     );
   }
