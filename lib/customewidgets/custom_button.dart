@@ -107,18 +107,8 @@ class _CustomButtonState extends State<CustomButton> {
                           ? Border.all(color: Colors.blueAccent, width: 2)
                           : null,
                     ),
-                    child: ElevatedButton.icon(
+                    child: ElevatedButton(
                       onPressed: widget.onPressed,
-                      icon: Icon(widget.icon, color: Colors.black54, size: 20),
-                      label: Text(
-                        widget.text,
-                        style: const TextStyle(
-                          color: Colors.black,
-                          fontSize: 14,
-                          fontWeight: FontWeight.w400,
-                          fontFamily: 'Roboto',
-                        ),
-                      ),
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.transparent,
                         shadowColor: Colors.transparent,
@@ -126,7 +116,26 @@ class _CustomButtonState extends State<CustomButton> {
                           borderRadius: BorderRadius.circular(5),
                         ),
                         padding: const EdgeInsets.symmetric(
-                            horizontal: 5, vertical: 5),
+                          horizontal: 5,
+                          vertical: 5,
+                        ),
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Icon(widget.icon, color: Colors.black54, size: 20),
+                          const SizedBox(width: 8),
+                          Text(
+                            widget.text,
+                            style: const TextStyle(
+                              color: Colors.black,
+                              fontSize: 14,
+                              fontWeight: FontWeight.w400,
+                              fontFamily: 'Roboto',
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ),

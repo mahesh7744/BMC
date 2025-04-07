@@ -11,12 +11,13 @@ class TextFielDesign extends StatelessWidget {
   final Function(String)? onSubmitted;
   final Function(String)? onChanged;
   final IconData? prefixIcon;
-  final IconData? suffixIcon;
+  final Widget? suffixIcon; // ✅ Changed to Widget? to allow IconButton
   final String? prefixText;
   final bool isEnabled;
   final bool isReadOnly;
   final FocusNode? focusNode;
-  final List<TextInputFormatter>? inputFormatters; // ✅ Changed here
+  final List<TextInputFormatter>? inputFormatters;
+  final bool obscureText; // ✅ Moved out of constructor params properly
 
   const TextFielDesign({
     super.key,
@@ -35,6 +36,7 @@ class TextFielDesign extends StatelessWidget {
     this.isReadOnly = false,
     this.focusNode,
     this.inputFormatters,
+    this.obscureText = false, // ✅ Default false
   });
 
   @override
@@ -45,6 +47,7 @@ class TextFielDesign extends StatelessWidget {
       keyboardType: textInputType,
       inputFormatters: inputFormatters,
       textAlign: textAlign,
+      obscureText: obscureText,
       style: TextStyle(
         fontSize: fontSize,
         fontWeight: fontWeight,
@@ -55,7 +58,7 @@ class TextFielDesign extends StatelessWidget {
       readOnly: isReadOnly,
       decoration: InputDecoration(
         labelText: lbltext,
-        labelStyle: TextStyle(
+        labelStyle: const TextStyle(
           fontSize: 14,
           fontWeight: FontWeight.w500,
           fontFamily: 'Roboto',
@@ -68,7 +71,7 @@ class TextFielDesign extends StatelessWidget {
           ),
         ),
         prefixIcon: prefixIcon != null ? Icon(prefixIcon) : null,
-        suffixIcon: suffixIcon != null ? Icon(suffixIcon) : null,
+        suffixIcon: suffixIcon,
         prefixText: prefixText,
       ),
       onSubmitted: onSubmitted,

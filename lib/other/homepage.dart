@@ -1,3 +1,8 @@
+import 'package:bmc/master/cattlefeedmaster.dart';
+import 'package:bmc/master/rootmaster.dart';
+import 'package:bmc/master/transportmaster.dart';
+import 'package:bmc/master/usermaster.dart';
+import 'package:flutter/material.dart';
 import 'package:bmc/customewidgets/custom_button.dart';
 import 'package:bmc/master/accountmaster.dart';
 import 'package:bmc/master/membermaster.dart';
@@ -5,7 +10,6 @@ import 'package:bmc/master/ratechart.dart';
 import 'package:bmc/master/sanghmaster.dart';
 import 'package:bmc/master/sanghratechart.dart';
 import 'package:bmc/master/supplymaster.dart';
-import 'package:flutter/material.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
@@ -31,90 +35,155 @@ class _HomepageState extends State<Homepage> {
         ),
       ),
       body: SafeArea(
-          child: SingleChildScrollView(
-        child: Column(
-          children: [
-            SizedBox(height: 20),
-            CustomButton(
-              width: 200,
-              height: 40,
-              text: 'Member Master',
-              icon: Icons.delete,
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Membermaster()),
-                );
-              },
+        child: SingleChildScrollView(
+          child: Center(
+            child: Column(
+              children: [
+                const SizedBox(height: 20),
+                CustomButton(
+                  width: 200,
+                  height: 50,
+                  text: 'Member Master',
+                  icon: Icons.next_plan,
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const Membermaster()),
+                    );
+                  },
+                ),
+                const SizedBox(height: 10),
+                CustomButton(
+                  width: 200,
+                  height: 50,
+                  text: 'Rate Chart',
+                  icon: Icons.next_plan,
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const Ratechart()),
+                    );
+                  },
+                ),
+                const SizedBox(height: 10),
+                CustomButton(
+                  width: 200,
+                  height: 50,
+                  text: 'Account Master',
+                  icon: Icons.next_plan,
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const Accountmaster()),
+                    );
+                  },
+                ),
+                const SizedBox(height: 10),
+                CustomButton(
+                  width: 200,
+                  height: 50,
+                  text: 'Supply Master',
+                  icon: Icons.next_plan,
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const Supplymaster()),
+                    );
+                  },
+                ),
+                const SizedBox(height: 10),
+                CustomButton(
+                  width: 200,
+                  height: 50,
+                  text: 'Sangh Master',
+                  icon: Icons.next_plan,
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const Sanghmaster()),
+                    );
+                  },
+                ),
+                const SizedBox(height: 10),
+                CustomButton(
+                  width: 200,
+                  height: 50,
+                  text: 'Sangh Rate Chart',
+                  icon: Icons.next_plan,
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const Sanghratechart()),
+                    );
+                  },
+                ),
+                const SizedBox(height: 10),
+                CustomButton(
+                  width: 200,
+                  height: 50,
+                  text: 'Root Master',
+                  icon: Icons.next_plan,
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const Rootmaster()),
+                    );
+                  },
+                ),
+                const SizedBox(height: 10),
+                CustomButton(
+                  width: 200,
+                  height: 50,
+                  text: 'Cattle feed Master',
+                  icon: Icons.next_plan,
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const Cattlefeedmaster()),
+                    );
+                  },
+                ),
+                const SizedBox(height: 10),
+                CustomButton(
+                  width: 200,
+                  height: 50,
+                  text: 'User Master',
+                  icon: Icons.next_plan,
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const Usermaster()),
+                    );
+                  },
+                ),
+                const SizedBox(height: 10),
+                CustomButton(
+                  width: 200,
+                  height: 50,
+                  text: 'Transport Master',
+                  icon: Icons.next_plan,
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const Transportmaster()),
+                    );
+                  },
+                ),
+              ],
             ),
-            SizedBox(height: 5),
-            CustomButton(
-              width: 100,
-              height: 40,
-              text: 'Member Master',
-              icon: Icons.delete,
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Ratechart()),
-                );
-              },
-            ),
-            SizedBox(height: 5),
-            CustomButton(
-              width: 100,
-              height: 40,
-              text: 'Member Master',
-              icon: Icons.delete,
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Accountmaster()),
-                );
-              },
-            ),
-            SizedBox(height: 5),
-            CustomButton(
-              width: 100,
-              height: 40,
-              text: 'Member Master',
-              icon: Icons.delete,
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Supplymaster()),
-                );
-              },
-            ),
-            SizedBox(height: 5),
-            CustomButton(
-              width: 100,
-              height: 40,
-              text: 'Member Master',
-              icon: Icons.delete,
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Sanghmaster()),
-                );
-              },
-            ),
-            SizedBox(height: 5),
-            CustomButton(
-              width: 100,
-              height: 40,
-              text: 'Member Master',
-              icon: Icons.delete,
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Sanghratechart()),
-                );
-              },
-            ),
-          ],
+          ),
         ),
-      )),
+      ),
     );
   }
 }
