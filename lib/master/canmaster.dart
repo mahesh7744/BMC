@@ -1,3 +1,4 @@
+import 'package:bmc/other/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:bmc/customewidgets/custom_textfield.dart';
 import 'package:flutter/services.dart';
@@ -49,8 +50,8 @@ class _CanmasterState extends State<Canmaster> {
         toolbarHeight: 40,
         backgroundColor: Colors.indigo.shade300,
         centerTitle: true,
-        title: const Text(
-          'Can Master',
+        title: Text(
+          'canmaster'.tr(context),
           style: TextStyle(
             fontSize: 24,
             fontFamily: 'Roboto',
@@ -71,7 +72,7 @@ class _CanmasterState extends State<Canmaster> {
                   height: 50,
                   width: 300,
                   child: TextFielDesign(
-                    lbltext: 'Can Type',
+                    lbltext: 'cantype'.tr(context),
                     textEditingController: canController,
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
@@ -88,7 +89,7 @@ class _CanmasterState extends State<Canmaster> {
                   height: 50,
                   width: 150,
                   child: TextFielDesign(
-                    lbltext: 'Purchase Rate',
+                    lbltext: 'purchaserate'.tr(context),
                     textEditingController: purchaserateController,
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
@@ -105,7 +106,7 @@ class _CanmasterState extends State<Canmaster> {
                   height: 50,
                   width: 150,
                   child: TextFielDesign(
-                    lbltext: 'Sale Rate',
+                    lbltext: 'salerate'.tr(context),
                     textEditingController: salerateController,
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
@@ -123,7 +124,7 @@ class _CanmasterState extends State<Canmaster> {
                   height: 50,
                   width: 150,
                   child: TextFielDesign(
-                    lbltext: 'Opening Stock',
+                    lbltext: 'openingstock'.tr(context),
                     textEditingController: openingstockController,
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
@@ -161,7 +162,7 @@ class _CanmasterState extends State<Canmaster> {
                     CustomButton(
                       width: 100,
                       height: 40,
-                      text: 'Delete',
+                      text: 'delete'.tr(context),
                       icon: Icons.delete,
                       onPressed: () {},
                     ),
@@ -169,7 +170,7 @@ class _CanmasterState extends State<Canmaster> {
                     CustomButton(
                       width: 100,
                       height: 40,
-                      text: 'Save',
+                      text: 'save'.tr(context),
                       focusNode: saveFocus,
                       icon: Icons.save,
                       onPressed: () {

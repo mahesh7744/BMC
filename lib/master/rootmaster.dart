@@ -1,3 +1,4 @@
+import 'package:bmc/other/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:bmc/customewidgets/custom_button.dart';
 import 'package:bmc/customewidgets/custom_textfield.dart';
@@ -37,8 +38,8 @@ class _RootmasterState extends State<Rootmaster> {
         toolbarHeight: 40,
         backgroundColor: Colors.indigo.shade300,
         centerTitle: true,
-        title: const Text(
-          'Root Master',
+        title: Text(
+          'rootmaster'.tr(context),
           style: TextStyle(
             fontSize: 24,
             fontFamily: 'Roboto',
@@ -57,7 +58,7 @@ class _RootmasterState extends State<Rootmaster> {
                 height: 60,
                 width: 100,
                 child: TextFielDesign(
-                  lbltext: 'Root Code',
+                  lbltext: 'rootcode'.tr(context),
                   textEditingController: rootcodeController,
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
@@ -74,7 +75,7 @@ class _RootmasterState extends State<Rootmaster> {
                 height: 60,
                 width: 400,
                 child: TextFielDesign(
-                  lbltext: 'Root Name',
+                  lbltext: 'rootname'.tr(context),
                   textEditingController: rootnameController,
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
@@ -91,17 +92,17 @@ class _RootmasterState extends State<Rootmaster> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   CustomButton(
-                    width: 80,
+                    width: 90,
                     height: 40,
-                    text: 'Delete',
+                    text: 'delete'.tr(context),
                     icon: Icons.delete,
                     onPressed: () {},
                   ),
                   SizedBox(width: 20),
                   CustomButton(
-                    width: 80,
+                    width: 90,
                     height: 40,
-                    text: 'Save',
+                    text: 'save'.tr(context),
                     focusNode: saveFocus,
                     icon: Icons.save,
                     onPressed: () {

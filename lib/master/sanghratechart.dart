@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:bmc/customewidgets/custom_button.dart';
 import 'package:bmc/customewidgets/custom_textfield.dart';
 import 'package:bmc/customewidgets/date_widget.dart';
+import 'package:bmc/other/app_localizations.dart';
 import 'package:excel/excel.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
@@ -58,8 +59,8 @@ class _SanghratechartState extends State<Sanghratechart> {
       appBar: AppBar(
         backgroundColor: Colors.blueAccent.shade100,
         centerTitle: true,
-        title: const Text(
-          'Sangh Rate Chart',
+        title: Text(
+          'sanghratechart'.tr(context),
           style: TextStyle(
             fontSize: 24,
             fontFamily: 'Roboto',
@@ -81,7 +82,7 @@ class _SanghratechartState extends State<Sanghratechart> {
                       width: 160,
                       child: DatePickerField(
                         controller: trscDateController,
-                        labelText: 'Select Date',
+                        labelText: 'date'.tr(context),
                       ),
                     ),
                     SizedBox(width: 20),
@@ -89,7 +90,7 @@ class _SanghratechartState extends State<Sanghratechart> {
                       height: 60,
                       width: 220,
                       child: TextFielDesign(
-                        lbltext: 'Chart name',
+                        lbltext: 'chartname'.tr(context),
                         textEditingController: chartnameController,
                         textInputType: TextInputType.text,
                         fontSize: 16,
@@ -138,7 +139,7 @@ class _SanghratechartState extends State<Sanghratechart> {
                       child: Column(
                         children: [
                           Text(
-                            'Cow',
+                            'cow'.tr(context),
                             style: TextStyle(
                               fontWeight: FontWeight.w900,
                               fontSize: 16,
@@ -153,7 +154,7 @@ class _SanghratechartState extends State<Sanghratechart> {
                                 SizedBox(
                                   width: 80,
                                   child: TextFielDesign(
-                                    lbltext: 'Fat',
+                                    lbltext: 'fat'.tr(context),
                                     textEditingController: cowfatController,
                                     textInputType: TextInputType.text,
                                     fontSize: 16,
@@ -187,7 +188,7 @@ class _SanghratechartState extends State<Sanghratechart> {
                                 SizedBox(
                                   width: 80,
                                   child: TextFielDesign(
-                                    lbltext: 'Rate',
+                                    lbltext: 'rate'.tr(context),
                                     textEditingController: cowrateController,
                                     textInputType: TextInputType.text,
                                     fontSize: 16,
@@ -224,7 +225,7 @@ class _SanghratechartState extends State<Sanghratechart> {
                                       width: 40,
                                       height: 20,
                                       child: Text(
-                                        'Fat',
+                                        'fat'.tr(context),
                                         style: TextStyle(
                                             fontSize: 16,
                                             fontFamily: 'Roboto',
@@ -252,7 +253,7 @@ class _SanghratechartState extends State<Sanghratechart> {
                                       width: 40,
                                       height: 20,
                                       child: Text(
-                                        'Rate',
+                                        'rate'.tr(context),
                                         style: TextStyle(
                                             fontSize: 16,
                                             fontFamily: 'Roboto',
@@ -326,7 +327,7 @@ class _SanghratechartState extends State<Sanghratechart> {
                       child: Column(
                         children: [
                           Text(
-                            'Buffalo',
+                            'buffalo'.tr(context),
                             style: TextStyle(
                                 fontWeight: FontWeight.w900,
                                 fontSize: 16,
@@ -340,7 +341,7 @@ class _SanghratechartState extends State<Sanghratechart> {
                                 SizedBox(
                                   width: 80,
                                   child: TextFielDesign(
-                                    lbltext: 'Fat',
+                                    lbltext: 'fat'.tr(context),
                                     textEditingController: buffatController,
                                     textInputType: TextInputType.text,
                                     fontSize: 16,
@@ -374,7 +375,7 @@ class _SanghratechartState extends State<Sanghratechart> {
                                 SizedBox(
                                   width: 80,
                                   child: TextFielDesign(
-                                    lbltext: 'Rate',
+                                    lbltext: 'rate'.tr(context),
                                     textEditingController: bufrateController,
                                     textInputType: TextInputType.text,
                                     fontSize: 16,
@@ -410,7 +411,7 @@ class _SanghratechartState extends State<Sanghratechart> {
                                       width: 40,
                                       height: 20,
                                       child: Text(
-                                        'Fat',
+                                        'fat'.tr(context),
                                         style: TextStyle(
                                           fontSize: 16,
                                           fontFamily: 'Roboto',
@@ -440,7 +441,7 @@ class _SanghratechartState extends State<Sanghratechart> {
                                       width: 40,
                                       height: 20,
                                       child: Text(
-                                        'Rate',
+                                        'rate'.tr(context),
                                         style: TextStyle(
                                             fontSize: 16,
                                             fontFamily: 'Roboto',

@@ -1,3 +1,4 @@
+import 'package:bmc/other/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:bmc/customewidgets/custom_textfield.dart';
 import 'package:flutter/services.dart';
@@ -100,8 +101,8 @@ class _SupplymasterState extends State<Supplymaster> {
         toolbarHeight: 40,
         backgroundColor: Colors.indigo.shade300,
         centerTitle: true,
-        title: const Text(
-          'Supplyer Master',
+        title: Text(
+          'supplymaster'.tr(context),
           style: TextStyle(
             fontSize: 24,
             fontFamily: 'Roboto',
@@ -123,7 +124,7 @@ class _SupplymasterState extends State<Supplymaster> {
                   height: 50,
                   width: 150,
                   child: TextFielDesign(
-                    lbltext: 'Code',
+                    lbltext: 'code'.tr(context),
                     textEditingController: codeController,
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
@@ -140,7 +141,7 @@ class _SupplymasterState extends State<Supplymaster> {
                   height: 50,
                   width: 360,
                   child: TextFielDesign(
-                    lbltext: 'Account Name',
+                    lbltext: 'accountname'.tr(context),
                     textEditingController: accountnameController,
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
@@ -157,7 +158,7 @@ class _SupplymasterState extends State<Supplymaster> {
                   height: 50,
                   width: 360,
                   child: TextFielDesign(
-                    lbltext: 'Address',
+                    lbltext: 'address'.tr(context),
                     textEditingController: addressController,
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
@@ -209,8 +210,8 @@ class _SupplymasterState extends State<Supplymaster> {
                             onSubmitted: (value) {
                               FocusScope.of(context).requestFocus(pincodeFocus);
                             },
-                            decoration: const InputDecoration(
-                              labelText: 'City',
+                            decoration: InputDecoration(
+                              labelText: 'city'.tr(context),
                               border: OutlineInputBorder(),
                             ),
                           );
@@ -257,8 +258,8 @@ class _SupplymasterState extends State<Supplymaster> {
                               FocusScope.of(context)
                                   .requestFocus(districtFocus);
                             },
-                            decoration: const InputDecoration(
-                              labelText: 'Taluka',
+                            decoration: InputDecoration(
+                              labelText: 'taluka'.tr(context),
                               border: OutlineInputBorder(),
                             ),
                           );
@@ -274,7 +275,7 @@ class _SupplymasterState extends State<Supplymaster> {
                       height: 50,
                       width: 200,
                       child: TextFielDesign(
-                        lbltext: 'Pin Code',
+                        lbltext: 'pincode'.tr(context),
                         textEditingController: pincodeController,
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
@@ -324,8 +325,8 @@ class _SupplymasterState extends State<Supplymaster> {
                             onSubmitted: (value) {
                               FocusScope.of(context).requestFocus(mobile2Focus);
                             },
-                            decoration: const InputDecoration(
-                              labelText: 'District',
+                            decoration: InputDecoration(
+                              labelText: 'district'.tr(context),
                               border: OutlineInputBorder(),
                             ),
                           );
@@ -342,7 +343,7 @@ class _SupplymasterState extends State<Supplymaster> {
                       height: 50,
                       width: 200,
                       child: TextFielDesign(
-                        lbltext: 'Mobile No 1',
+                        lbltext: 'mobile1'.tr(context),
                         textEditingController: mobile1Controller,
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
@@ -361,7 +362,7 @@ class _SupplymasterState extends State<Supplymaster> {
                       height: 50,
                       width: 200,
                       child: TextFielDesign(
-                        lbltext: 'Mobile No 2',
+                        lbltext: 'mobile2'.tr(context),
                         textEditingController: mobile2Controller,
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
@@ -384,7 +385,7 @@ class _SupplymasterState extends State<Supplymaster> {
                       height: 60,
                       width: 200,
                       child: TextFielDesign(
-                        lbltext: 'Opening Balance',
+                        lbltext: 'openingbalance'.tr(context),
                         textEditingController: openingbalanceController,
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
@@ -403,7 +404,7 @@ class _SupplymasterState extends State<Supplymaster> {
                       child: DropdownButtonFormField<String>(
                         value: selectedTransactionType,
                         decoration: InputDecoration(
-                          labelText: 'Tran Type',
+                          labelText: 'trantype'.tr(context),
                           border: OutlineInputBorder(),
                         ),
                         items: ['Credit', 'Debit'].map((String type) {
@@ -428,7 +429,7 @@ class _SupplymasterState extends State<Supplymaster> {
                     CustomButton(
                       width: 100,
                       height: 40,
-                      text: 'Delete',
+                      text: 'delete'.tr(context),
                       icon: Icons.delete,
                       onPressed: () {},
                     ),
@@ -436,7 +437,7 @@ class _SupplymasterState extends State<Supplymaster> {
                     CustomButton(
                       width: 100,
                       height: 40,
-                      text: 'Save',
+                      text: 'save'.tr(context),
                       // focusNode: saveFocus,
                       icon: Icons.save,
                       onPressed: () {

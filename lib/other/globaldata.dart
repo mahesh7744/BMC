@@ -7,4 +7,6 @@ class GlobalData {
 
   static String blutoothname = "";
   static String blutoothaddress = "";
+
+  static String fontname = "";
 }

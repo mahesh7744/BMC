@@ -1,3 +1,4 @@
+import 'package:bmc/other/globaldata.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -51,17 +52,17 @@ class TextFielDesign extends StatelessWidget {
       style: TextStyle(
         fontSize: fontSize,
         fontWeight: fontWeight,
-        fontFamily: 'Roboto',
+        fontFamily: '${GlobalData.fontname}',
         color: isEnabled ? Colors.black : Colors.grey,
       ),
       enabled: isEnabled,
       readOnly: isReadOnly,
       decoration: InputDecoration(
         labelText: lbltext,
-        labelStyle: const TextStyle(
+        labelStyle: TextStyle(
           fontSize: 14,
           fontWeight: FontWeight.w500,
-          fontFamily: 'Roboto',
+          fontFamily: '${GlobalData.fontname}',
         ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),

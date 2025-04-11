@@ -26,6 +26,66 @@
   "fssainumber": "FSSAI क्रमांक",
   "advanceless": "अ‍ॅडव्हान्स कपात",
   "onoff": "चालू/बंद",
-  "save": "जतन करा",
-  "delete": "रद्द"
+  "save": "सेव्ह",
+  "delete": "रद्द",
+  "date":"दिनांक",
+  "chartname":"दर पत्रक",
+    "fat":"फॅट",
+    "rate":"दर",
+    
+      "accountmaster": "खाते मास्टर",
+      "code": "कोड",
+      "accountname": "खात्याचे नाव",
+      "city": "शहर",
+      "openingbalance": "प्रारंभिक शिल्लक",
+      "trantype": "व्यवहार प्रकार",
+       "supplymaster":"व्यापारी मास्टर",
+       "sanghmaster":"संघ मास्टर",
+        "sanghratechart":"संघ दर पत्रक",
+        "rootmaster":"रूट मास्टर",
+        "rootcode":"रूट कोड",
+        
+          "cattlefeedmaster": "पशुखाद्य मास्टर",
+          "cattlefeedname": "पशुखाद्याचे नाव",
+          "packing": "पॅकिंग",
+          "salerate": "विक्री दर",
+          "purchaserate": "खरेदी दर",
+          "openingstock": "प्रारंभिक साठा",
+
+        
+            "transportmaster": "वाहतूक मास्टर",
+            "drivername": "चालकाचे नाव",
+            "mobileno": "मोबाईल क्रमांक",
+            "vehiclecategory": "वाहन श्रेणी",
+            "vehicleno": "वाहन क्रमांक",
+            "kmrate": "प्रति किमी दर",
+            "fixrate": "ठराविक दर",
+
+            "canmaster":"कॅन मास्टर",
+            "cantype":"कॅनचा प्रकार",
+
+            
+              "milkcollection": "दूध संकलन",
+              "time": "वेळ",
+              "morning": "सकाळ",
+              "evening": "संध्याकाळ",
+              "milktype": "दुधाचे प्रकार",
+              "litter": "लिटर",
+              "can": "कॅन",
+              "sampleno": "सॅ.नं.",
+              "print": "प्रिंट",
+              "total": "एकूण",
+              "member": "सदस्य",
+              "avgfat": "स.फॅट",
+              "avgsnf": "स.SNF",
+              "avgrate": "स.दर",
+              "amount": "रक्कम"
+            
+            
+        
+          
+        
+        
+    
+    
 }

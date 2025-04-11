@@ -6,6 +6,7 @@ import 'package:bmc/master/usermaster.dart';
 import 'package:bmc/other/app_localizations.dart';
 import 'package:bmc/other/globaldata.dart';
 import 'package:bmc/other/locale_provider.dart';
+import 'package:bmc/transactions/localmilksale.dart';
 import 'package:bmc/transactions/milkcollection.dart';
 import 'package:flutter/material.dart';
 import 'package:bmc/customewidgets/custom_button.dart';
@@ -54,6 +55,8 @@ class _HomepageState extends State<Homepage> {
                 onTap: () {
                   provider.setLocale(Locale('en'));
                   GlobalData.enmrkn = 'en';
+
+                  GlobalData.fontname = 'Roboto';
                 },
               ),
               DropdownMenuItem(
@@ -62,6 +65,7 @@ class _HomepageState extends State<Homepage> {
                 onTap: () {
                   provider.setLocale(Locale('mr'));
                   GlobalData.enmrkn = 'mr';
+                  GlobalData.fontname = 'NotoSans';
                 },
               ),
               DropdownMenuItem(
@@ -70,6 +74,7 @@ class _HomepageState extends State<Homepage> {
                 onTap: () {
                   provider.setLocale(Locale('kn'));
                   GlobalData.enmrkn = 'kn';
+                  GlobalData.fontname = 'Roboto';
                 },
               ),
             ],
@@ -249,6 +254,20 @@ class _HomepageState extends State<Homepage> {
                       context,
                       MaterialPageRoute(
                           builder: (context) => const Milkcollection()),
+                    );
+                  },
+                ),
+                const SizedBox(height: 10),
+                CustomButton(
+                  width: 200,
+                  height: 50,
+                  text: 'Local Milk Sale',
+                  icon: Icons.next_plan,
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const Localmilksale()),
                     );
                   },
                 ),

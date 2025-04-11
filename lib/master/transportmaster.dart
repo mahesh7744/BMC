@@ -1,3 +1,4 @@
+import 'package:bmc/other/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:bmc/customewidgets/custom_textfield.dart';
 import 'package:flutter/services.dart';
@@ -58,8 +59,8 @@ class _TransportmasterState extends State<Transportmaster> {
         toolbarHeight: 40,
         backgroundColor: Colors.indigo.shade300,
         centerTitle: true,
-        title: const Text(
-          'Transposrt Master',
+        title: Text(
+          'transportmaster'.tr(context),
           style: TextStyle(
             fontSize: 24,
             fontFamily: 'Roboto',
@@ -80,7 +81,7 @@ class _TransportmasterState extends State<Transportmaster> {
                   height: 50,
                   width: 150,
                   child: TextFielDesign(
-                    lbltext: 'Code',
+                    lbltext: 'code'.tr(context),
                     textEditingController: codeController,
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
@@ -97,7 +98,7 @@ class _TransportmasterState extends State<Transportmaster> {
                   height: 50,
                   width: 300,
                   child: TextFielDesign(
-                    lbltext: 'Driver Name',
+                    lbltext: 'drivername'.tr(context),
                     textEditingController: drivernameController,
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
@@ -114,7 +115,7 @@ class _TransportmasterState extends State<Transportmaster> {
                   height: 50,
                   width: 200,
                   child: TextFielDesign(
-                    lbltext: 'Mobile No',
+                    lbltext: 'mobileno'.tr(context),
                     textEditingController: mobilenumberController,
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
@@ -132,7 +133,7 @@ class _TransportmasterState extends State<Transportmaster> {
                   height: 50,
                   width: 300,
                   child: TextFielDesign(
-                    lbltext: 'Address',
+                    lbltext: 'address'.tr(context),
                     textEditingController: addressController,
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
@@ -150,7 +151,7 @@ class _TransportmasterState extends State<Transportmaster> {
                   height: 50,
                   width: 150,
                   child: TextFielDesign(
-                    lbltext: 'Vehicle Category',
+                    lbltext: 'vehiclecategory'.tr(context),
                     textEditingController: vehicleController,
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
@@ -168,7 +169,7 @@ class _TransportmasterState extends State<Transportmaster> {
                   height: 50,
                   width: 150,
                   child: TextFielDesign(
-                    lbltext: 'Vehicle no',
+                    lbltext: 'vehicleno'.tr(context),
                     textEditingController: vehiclenumberController,
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
@@ -189,7 +190,7 @@ class _TransportmasterState extends State<Transportmaster> {
                       height: 50,
                       width: 100,
                       child: TextFielDesign(
-                        lbltext: 'KM rate',
+                        lbltext: 'kmrate'.tr(context),
                         textEditingController: kmController,
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
@@ -212,7 +213,7 @@ class _TransportmasterState extends State<Transportmaster> {
                       height: 50,
                       width: 100,
                       child: TextFielDesign(
-                        lbltext: 'Fix rate',
+                        lbltext: 'fixrate'.tr(context),
                         textEditingController: fixrateController,
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
@@ -238,7 +239,7 @@ class _TransportmasterState extends State<Transportmaster> {
                     CustomButton(
                       width: 100,
                       height: 40,
-                      text: 'Delete',
+                      text: 'delete'.tr(context),
                       icon: Icons.delete,
                       onPressed: () {},
                     ),
@@ -246,7 +247,7 @@ class _TransportmasterState extends State<Transportmaster> {
                     CustomButton(
                       width: 100,
                       height: 40,
-                      text: 'Save',
+                      text: 'save'.tr(context),
                       focusNode: saveFocus,
                       icon: Icons.save,
                       onPressed: () {

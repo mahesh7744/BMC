@@ -82,7 +82,7 @@ class _RatechartState extends State<Ratechart> {
                       width: 160,
                       child: DatePickerField(
                         controller: trscDateController,
-                        labelText: 'Select Date',
+                        labelText: 'date'.tr(context),
                       ),
                     ),
                     SizedBox(width: 20),
@@ -90,7 +90,7 @@ class _RatechartState extends State<Ratechart> {
                       height: 60,
                       width: 220,
                       child: TextFielDesign(
-                        lbltext: 'Chart name',
+                        lbltext: 'chartname'.tr(context),
                         textEditingController: chartnameController,
                         textInputType: TextInputType.text,
                         fontSize: 16,
@@ -139,7 +139,7 @@ class _RatechartState extends State<Ratechart> {
                       child: Column(
                         children: [
                           Text(
-                            'Cow',
+                            'cow'.tr(context),
                             style: TextStyle(
                               fontWeight: FontWeight.w900,
                               fontSize: 16,
@@ -154,7 +154,7 @@ class _RatechartState extends State<Ratechart> {
                                 SizedBox(
                                   width: 80,
                                   child: TextFielDesign(
-                                    lbltext: 'Fat',
+                                    lbltext: 'fat'.tr(context),
                                     textEditingController: cowfatController,
                                     textInputType: TextInputType.text,
                                     fontSize: 16,
@@ -188,7 +188,7 @@ class _RatechartState extends State<Ratechart> {
                                 SizedBox(
                                   width: 80,
                                   child: TextFielDesign(
-                                    lbltext: 'Rate',
+                                    lbltext: 'rate'.tr(context),
                                     textEditingController: cowrateController,
                                     textInputType: TextInputType.text,
                                     fontSize: 16,
@@ -225,7 +225,7 @@ class _RatechartState extends State<Ratechart> {
                                       width: 40,
                                       height: 20,
                                       child: Text(
-                                        'Fat',
+                                        'fat'.tr(context),
                                         style: TextStyle(
                                             fontSize: 16,
                                             fontFamily: 'Roboto',
@@ -253,7 +253,7 @@ class _RatechartState extends State<Ratechart> {
                                       width: 40,
                                       height: 20,
                                       child: Text(
-                                        'Rate',
+                                        'rate'.tr(context),
                                         style: TextStyle(
                                             fontSize: 16,
                                             fontFamily: 'Roboto',
@@ -327,7 +327,7 @@ class _RatechartState extends State<Ratechart> {
                       child: Column(
                         children: [
                           Text(
-                            'Buffalo',
+                            'buffalo'.tr(context),
                             style: TextStyle(
                                 fontWeight: FontWeight.w900,
                                 fontSize: 16,
@@ -341,7 +341,7 @@ class _RatechartState extends State<Ratechart> {
                                 SizedBox(
                                   width: 80,
                                   child: TextFielDesign(
-                                    lbltext: 'Fat',
+                                    lbltext: 'fat'.tr(context),
                                     textEditingController: buffatController,
                                     textInputType: TextInputType.text,
                                     fontSize: 16,
@@ -375,7 +375,7 @@ class _RatechartState extends State<Ratechart> {
                                 SizedBox(
                                   width: 80,
                                   child: TextFielDesign(
-                                    lbltext: 'Rate',
+                                    lbltext: 'rate'.tr(context),
                                     textEditingController: bufrateController,
                                     textInputType: TextInputType.text,
                                     fontSize: 16,
@@ -411,7 +411,7 @@ class _RatechartState extends State<Ratechart> {
                                       width: 40,
                                       height: 20,
                                       child: Text(
-                                        'Fat',
+                                        'fat'.tr(context),
                                         style: TextStyle(
                                           fontSize: 16,
                                           fontFamily: 'Roboto',
@@ -441,7 +441,7 @@ class _RatechartState extends State<Ratechart> {
                                       width: 40,
                                       height: 20,
                                       child: Text(
-                                        'Rate',
+                                        'rate'.tr(context),
                                         style: TextStyle(
                                             fontSize: 16,
                                             fontFamily: 'Roboto',

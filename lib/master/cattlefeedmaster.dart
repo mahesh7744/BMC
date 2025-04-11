@@ -1,7 +1,11 @@
+import 'dart:convert';
+
+import 'package:bmc/other/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:bmc/customewidgets/custom_textfield.dart';
 import 'package:flutter/services.dart';
 import 'package:bmc/customewidgets/custom_button.dart';
+import 'package:http/http.dart' as http;
 
 class Cattlefeedmaster extends StatefulWidget {
   const Cattlefeedmaster({super.key});
@@ -40,6 +44,48 @@ class _CattlefeedmasterState extends State<Cattlefeedmaster> {
     super.dispose();
   }
 
+  Future<void> insertItemMaster(
+      Map<String, dynamic> itemData, String dbName) async {
+    final response = await http.post(
+      Uri.parse('http://192.168.1.5:5000/itemmaster/add'),
+      headers: {'Content-Type': 'application/json'},
+      body: jsonEncode({
+        'db': dbName, // ✅ इथे variable पासून string पाठवत आहोत
+        ...itemData,
+      }),
+    );
+
+    if (response.statusCode == 200) {
+      print('Item inserted successfully');
+    } else {
+      print('Failed to insert: ${response.body}');
+    }
+  }
+
+  List<Map<String, dynamic>> itemList = [];
+
+  Future<void> fetchItems() async {
+    final dbName = 'bmc1'; // इथे तुम्ही client नुसार dynamic change करू शकता
+    final url = Uri.parse('http://192.168.1.5:5000/itemmaster/all?db=$dbName');
+
+    final response = await http.get(url);
+
+    if (response.statusCode == 200) {
+      final List<dynamic> data = jsonDecode(response.body);
+      setState(() {
+        itemList = List<Map<String, dynamic>>.from(data);
+      });
+    } else {
+      print('Failed to load items: ${response.body}');
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    fetchItems();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,8 +97,8 @@ class _CattlefeedmasterState extends State<Cattlefeedmaster> {
         toolbarHeight: 40,
         backgroundColor: Colors.indigo.shade300,
         centerTitle: true,
-        title: const Text(
-          'Cattle Feed Master',
+        title: Text(
+          'cattlefeedmaster'.tr(context),
           style: TextStyle(
             fontSize: 24,
             fontFamily: 'Roboto',
@@ -73,7 +119,7 @@ class _CattlefeedmasterState extends State<Cattlefeedmaster> {
                   height: 50,
                   width: 300,
                   child: TextFielDesign(
-                    lbltext: 'Cattle feed Name',
+                    lbltext: 'cattlefeedname'.tr(context),
                     textEditingController: cattlefeednameController,
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
@@ -90,7 +136,7 @@ class _CattlefeedmasterState extends State<Cattlefeedmaster> {
                   height: 50,
                   width: 150,
                   child: TextFielDesign(
-                    lbltext: 'Packing',
+                    lbltext: 'packing'.tr(context),
                     textEditingController: packingController,
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
@@ -129,7 +175,7 @@ class _CattlefeedmasterState extends State<Cattlefeedmaster> {
                   height: 50,
                   width: 150,
                   child: TextFielDesign(
-                    lbltext: 'Sale Rate',
+                    lbltext: 'salerate'.tr(context),
                     textEditingController: salerateController,
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
@@ -151,7 +197,7 @@ class _CattlefeedmasterState extends State<Cattlefeedmaster> {
                   height: 50,
                   width: 150,
                   child: TextFielDesign(
-                    lbltext: 'Purchase Rate',
+                    lbltext: 'purchaserate'.tr(context),
                     textEditingController: purchaserateController,
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
@@ -173,7 +219,7 @@ class _CattlefeedmasterState extends State<Cattlefeedmaster> {
                   height: 50,
                   width: 150,
                   child: TextFielDesign(
-                    lbltext: 'Opening Stock',
+                    lbltext: 'openingstock'.tr(context),
                     textEditingController: openingstockController,
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
@@ -197,7 +243,7 @@ class _CattlefeedmasterState extends State<Cattlefeedmaster> {
                     CustomButton(
                       width: 100,
                       height: 40,
-                      text: 'Delete',
+                      text: 'delete'.tr(context),
                       icon: Icons.delete,
                       onPressed: () {},
                     ),
@@ -205,12 +251,38 @@ class _CattlefeedmasterState extends State<Cattlefeedmaster> {
                     CustomButton(
                       width: 100,
                       height: 40,
-                      text: 'Save',
+                      text: 'save'.tr(context),
                       focusNode: saveFocus,
                       icon: Icons.save,
-                      onPressed: () {
-                        FocusScope.of(context)
-                            .requestFocus(cattlefeednameFocus);
+                      onPressed: () async {
+                        FocusScope.of(context).unfocus(); // keyboard hide
+
+                        // await insertItemMaster({
+                        //   "ItemName": cattlefeednameController.text.trim(),
+                        //   "Packing": packingController.text.trim(),
+                        //   "Gst": double.tryParse(gstController.text) ?? 0,
+                        //   "SaleRate":
+                        //       double.tryParse(salerateController.text) ?? 0,
+                        //   "PurchaseRate":
+                        //       double.tryParse(purchaserateController.text) ?? 0,
+                        //   "OpeningStock":
+                        //       double.tryParse(openingstockController.text) ?? 0,
+                        // });
+
+                        insertItemMaster({
+                          'ItemName': 'Pen',
+                          'Packing': 'Box',
+                          'Gst': 12,
+                          'SaleRate': 15,
+                          'PurchaseRate': 10,
+                          'OpeningStock': 50,
+                        }, 'bmc1'); // 👈 Flutter मधून इथे 'bmc1' database पाठवत आहोत
+
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                              content: Text(
+                                  'Hardcoded Item inserted successfully!')),
+                        );
                       },
                       onSubmitted: (value) {
                         FocusScope.of(context)
@@ -218,6 +290,54 @@ class _CattlefeedmasterState extends State<Cattlefeedmaster> {
                       },
                     ),
                   ],
+                ),
+                SizedBox(height: 20),
+                Text(
+                  'Item List',
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                ),
+                SizedBox(height: 10),
+                Container(
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.grey),
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  padding: EdgeInsets.all(8),
+                  child: SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: DataTable(
+                      columnSpacing: 30, // space between columns
+                      headingRowColor: WidgetStateProperty.all(
+                          Colors.indigo.shade100), // header bg
+                      columns: const [
+                        DataColumn(
+                            label: SizedBox(width: 100, child: Text('Item'))),
+                        DataColumn(
+                            label: SizedBox(width: 80, child: Text('Packing'))),
+                        DataColumn(
+                            label: SizedBox(width: 60, child: Text('GST'))),
+                        DataColumn(
+                            label:
+                                SizedBox(width: 80, child: Text('Sale Rate'))),
+                        DataColumn(
+                            label: SizedBox(
+                                width: 100, child: Text('Purchase Rate'))),
+                        DataColumn(
+                            label: SizedBox(
+                                width: 100, child: Text('Opening Stock'))),
+                      ],
+                      rows: itemList.map((item) {
+                        return DataRow(cells: [
+                          DataCell(Text(item['ItemName'].toString())),
+                          DataCell(Text(item['Packing'].toString())),
+                          DataCell(Text(item['Gst'].toString())),
+                          DataCell(Text(item['SaleRate'].toString())),
+                          DataCell(Text(item['PurchaseRate'].toString())),
+                          DataCell(Text(item['OpeningStock'].toString())),
+                        ]);
+                      }).toList(),
+                    ),
+                  ),
                 ),
               ],
             ),

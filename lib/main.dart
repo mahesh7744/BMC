@@ -14,6 +14,7 @@ import 'package:bmc/other/app_localizations.dart';
 import 'package:bmc/other/app_settingprovider.dart';
 import 'package:bmc/other/homepage.dart';
 import 'package:bmc/other/locale_provider.dart';
+import 'package:bmc/transactions/localmilksale.dart';
 import 'package:bmc/transactions/milkcollection.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -53,6 +54,9 @@ class MyApp extends StatelessWidget {
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        fontFamily: 'Roboto', // 👈 इथे सेट कर
+      ),
       locale: localeProvider.locale, // इथे provider वापरा
       supportedLocales: const [
         Locale('en'),
@@ -79,6 +83,7 @@ class MyApp extends StatelessWidget {
         "/transportmaster": (context) => Transportmaster(),
         "/canmaster": (context) => Canmaster(),
         "/milkcollection": (context) => Milkcollection(),
+        "/localmilksale": (context) => Localmilksale(),
       },
     );
   }

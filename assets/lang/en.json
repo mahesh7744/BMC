@@ -29,9 +29,66 @@
     "save": "Save",
     "delete": "Delete",
 
+     
     "chartname":"Chart Name",
     "fat":"Fat",
-    "rate":"Rate"
+    "rate":"Rate",
+    "date":"Date",
+
+
+    "accountmaster":"Account Master",
+    "code":"Code",
+    "accountname":"Account Name",
+    "city":"City",
+    "openingbalance":"opening Balance",
+    "trantype":"Tran Type",
+    "supplymaster":"Supply Master",
+
+    "sanghmaster":"Sangh Master",
+    "sanghratechart":"Sangh Rate Chart",
+    "rootmaster":"Root Master",
+    "rootcode":"Root Code",
+
+    "cattlefeedmaster":"Cattle Feed Master",
+    "cattlefeedname":"Cattle feed Name",
+    "packing":"Packing",
+    "salerate":"Sale Rate",
+    "purchaserate":"Purchase Rate",
+    "openingstock":"Opening Stock",
+
+    "transportmaster":"Tarnsport Master",
+    "drivername":"Driver Name",
+    "mobileno":"Mobile No",
+    "vehiclecategory":"Vehicle Category",
+    "vehicleno":"Vehicle no",
+    "kmrate":"Km rate",
+    "fixrate":"Fix rate",
+
+    "canmaster":"Can Master",
+    "cantype":"Can Type",
+    
+    "milkcollection":"Milk Collection",
+    "time":"time",
+    "morning":"Morning",
+    "evening":"Evening",
+    "milktype":"Milk Type",
+    "litter":"Litter",
+    "can": "Can",
+    "sampleno":"Sample no",
+    "print":"Print",
+    "total":"Total",
+    "member":"Member",
+    "avgfat":"Avg Fat",
+    "avgsnf":"Avg SNF",
+    "avgrate":"Avg Rate",
+    "amount":"Amount"
+
+
+   
+
+
+
+
 
 
 
