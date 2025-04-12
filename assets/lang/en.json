@@ -81,7 +81,37 @@
     "avgfat":"Avg Fat",
     "avgsnf":"Avg SNF",
     "avgrate":"Avg Rate",
-    "amount":"Amount"
+    "amount":"Amount",
+
+
+    "localmilksale" : "Local Milk Sale",
+    "code" : "Code",
+    "name" : "Name",
+    "fatwise": "Fat Wise",
+    "cash" : "Cash",
+    "credit" : "Credit",
+    "print" : "Print",
+    "pendinglist" : "Pending List",
+    "billno" : "Bill No",
+    "localmilksale" : "Local Milk Sale",
+    "cash/credit" : "Cash/Credit",
+    "shiftreport" :" Shift Report",
+
+    "bill":"Bill",
+    "ladger":"Ladger",
+    "register":"Register",
+    "to":"To",
+
+    "billprocess":"Bill Process",
+    "commision":"Commision",
+    "billinmarthi":"Bill In Marthi",
+    "billinenglish":"Bill In English",
+    "milkbillstatement":"Milk Bill Statement",
+    "bankreport":"Bank Report",
+    "paymentregister":"Payment Register"
+
+
+
 
 
    

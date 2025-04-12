@@ -14,6 +14,7 @@ import 'package:bmc/other/app_localizations.dart';
 import 'package:bmc/other/app_settingprovider.dart';
 import 'package:bmc/other/homepage.dart';
 import 'package:bmc/other/locale_provider.dart';
+import 'package:bmc/transactions/billprocess.dart';
 import 'package:bmc/transactions/localmilksale.dart';
 import 'package:bmc/transactions/milkcollection.dart';
 import 'package:flutter/material.dart';
@@ -84,6 +85,7 @@ class MyApp extends StatelessWidget {
         "/canmaster": (context) => Canmaster(),
         "/milkcollection": (context) => Milkcollection(),
         "/localmilksale": (context) => Localmilksale(),
+        "/billprocess": (context) => Billprocess(),
       },
     );
   }

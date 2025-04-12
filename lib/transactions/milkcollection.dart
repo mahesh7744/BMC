@@ -126,7 +126,7 @@ class _MilkcollectionState extends State<Milkcollection> {
           'milkcollection'.tr(context),
           style: TextStyle(
             fontSize: 24,
-            fontFamily: 'Roboto',
+            fontFamily: GlobalData.fontname,
             color: Color.fromARGB(255, 58, 245, 226),
           ),
         ),
@@ -176,7 +176,12 @@ class _MilkcollectionState extends State<Milkcollection> {
                             width: 150,
                             height: 40,
                             child: ListTile(
-                              title: Text('morning'.tr(context)),
+                              title: Text(
+                                'morning'.tr(context),
+                                style: TextStyle(
+                                  fontFamily: GlobalData.fontname,
+                                ),
+                              ),
                               leading: Radio<String>(
                                 value: 'Morning',
                                 groupValue: selectedShift,
@@ -193,7 +198,12 @@ class _MilkcollectionState extends State<Milkcollection> {
                             width: 160,
                             height: 40,
                             child: ListTile(
-                              title: Text('evening'.tr(context)),
+                              title: Text(
+                                'evening'.tr(context),
+                                style: TextStyle(
+                                  fontFamily: GlobalData.fontname,
+                                ),
+                              ),
                               leading: Radio<String>(
                                 value: 'Evening',
                                 groupValue: selectedShift,
@@ -289,7 +299,12 @@ class _MilkcollectionState extends State<Milkcollection> {
                             width: 150,
                             height: 40,
                             child: ListTile(
-                              title: Text('cow'.tr(context)),
+                              title: Text(
+                                'cow'.tr(context),
+                                style: TextStyle(
+                                  fontFamily: GlobalData.fontname,
+                                ),
+                              ),
                               leading: Radio<String>(
                                 value: 'C',
                                 groupValue: selectedMilk,
@@ -306,7 +321,12 @@ class _MilkcollectionState extends State<Milkcollection> {
                             width: 150,
                             height: 40,
                             child: ListTile(
-                              title: Text('buffalo'.tr(context)),
+                              title: Text(
+                                'buffalo'.tr(context),
+                                style: TextStyle(
+                                  fontFamily: GlobalData.fontname,
+                                ),
+                              ),
                               leading: Radio<String>(
                                 value: 'B',
                                 groupValue: selectedMilk,
@@ -695,6 +715,7 @@ class _MilkcollectionState extends State<Milkcollection> {
           style: TextStyle(
             fontSize: 14,
             fontWeight: FontWeight.w600,
+            fontFamily: GlobalData.fontname,
           ),
         ),
       ),
@@ -714,6 +735,7 @@ class _MilkcollectionState extends State<Milkcollection> {
         text,
         textAlign: TextAlign.center,
         style: TextStyle(
+          fontFamily: GlobalData.fontname,
           fontWeight: isHeader ? FontWeight.bold : FontWeight.normal,
         ),
       ),

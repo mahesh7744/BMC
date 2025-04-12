@@ -1,4 +1,5 @@
 import 'package:bmc/customewidgets/date_utility.dart';
+import 'package:bmc/other/globaldata.dart';
 
 import 'package:flutter/material.dart';
 
@@ -46,14 +47,20 @@ class _DatePickerFieldState extends State<DatePickerField> {
   Widget build(BuildContext context) {
     return TextField(
       style: TextStyle(
-          fontSize: 14, fontWeight: FontWeight.w700, fontFamily: 'MonterReg'),
+        fontSize: 14,
+        fontWeight: FontWeight.w700,
+        fontFamily: GlobalData.fontname,
+      ),
       controller: widget.controller,
       readOnly: true,
       onTap: _pickDate,
       decoration: InputDecoration(
         labelText: widget.labelText, // डायनामिक Label वापरा
         labelStyle: TextStyle(
-            fontSize: 16, fontWeight: FontWeight.bold, fontFamily: 'MonterReg'),
+          fontSize: 16,
+          fontWeight: FontWeight.bold,
+          fontFamily: GlobalData.fontname,
+        ),
         suffixIcon: const Icon(
           Icons.calendar_today,
           size: 25,

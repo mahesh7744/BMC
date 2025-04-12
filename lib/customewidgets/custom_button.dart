@@ -1,3 +1,4 @@
+import 'package:bmc/other/globaldata.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -128,11 +129,11 @@ class _CustomButtonState extends State<CustomButton> {
                           const SizedBox(width: 8),
                           Text(
                             widget.text,
-                            style: const TextStyle(
+                            style: TextStyle(
                               color: Colors.black,
                               fontSize: 14,
                               fontWeight: FontWeight.w400,
-                              fontFamily: 'Roboto',
+                              fontFamily: GlobalData.fontname,
                             ),
                           ),
                         ],

@@ -6,6 +6,7 @@ import 'package:bmc/master/usermaster.dart';
 import 'package:bmc/other/app_localizations.dart';
 import 'package:bmc/other/globaldata.dart';
 import 'package:bmc/other/locale_provider.dart';
+import 'package:bmc/transactions/billprocess.dart';
 import 'package:bmc/transactions/localmilksale.dart';
 import 'package:bmc/transactions/milkcollection.dart';
 import 'package:flutter/material.dart';
@@ -268,6 +269,19 @@ class _HomepageState extends State<Homepage> {
                       context,
                       MaterialPageRoute(
                           builder: (context) => const Localmilksale()),
+                    );
+                  },
+                ),
+                const SizedBox(height: 10),
+                CustomButton(
+                  width: 200,
+                  height: 50,
+                  text: 'Bill Process',
+                  icon: Icons.next_plan,
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Billprocess()),
                     );
                   },
                 ),

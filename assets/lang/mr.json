@@ -79,7 +79,27 @@
               "avgfat": "स.फॅट",
               "avgsnf": "स.SNF",
               "avgrate": "स.दर",
-              "amount": "रक्कम"
+              "amount": "रक्कम",
+
+
+  "localmilksale": "किरकोळ दूध विक्री",
+  "code": "कोड",
+  "name": "नाव",
+  "fatwise": "फॅट प्रमाणे",
+  "cash": "रोख",
+  "credit": "उधार",
+  "print": "प्रिंट",
+  "pendinglist": "पेंडींग लिस्ट",
+  "billno": "बिल नं",
+  "cash/credit": "रोख/उधार",
+  "shiftreport" :" शिफ्ट रिपोर्ट",
+
+  
+    "bill": "बिल",
+    "ladger": "लेजर",
+    "register": "रजिस्टर",
+        "to":"ते"
+  
             
             
         
